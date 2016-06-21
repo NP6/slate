@@ -57,6 +57,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/actions/000ABC/statistics"
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -199,6 +203,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/bounces"
 ```
 
 <blockquote class="lang-specific json">
@@ -353,6 +361,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/actions/000ABC/feedbacks/bounces"
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -444,6 +456,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/redlist/mail"
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -530,6 +546,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/redlist/sms"
 ```
 
 <blockquote class="lang-specific json">

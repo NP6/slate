@@ -51,6 +51,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/categories/"
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -135,6 +139,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/categories/1234"
 ```
 
 <blockquote class="lang-specific json">
@@ -275,6 +283,15 @@ IRestResponse response = client.Execute(request);
   </p>
 </blockquote>
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"        \
+     -X POST "https://backoffice.mailperformance.com/categories/" -d  \
+'{                                                                    \
+   name: "New",                                                       \
+   description: "Category for new campaign"                           \
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -381,11 +398,20 @@ request.RequestFormat = DataFormat.Json;
 request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 request.AddBody(new {
-    name: "New",
+    name: "Updated",
     description: "Category for new campaign"
   });
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"          \
+     -X PUT "https://backoffice.mailperformance.com/categories/1234" -d \
+'{                                                                      \
+   name: "Updated",                                                     \
+   description: "Category for new campaign"                             \
+}'
 ```
 
 <blockquote class="lang-specific json">
@@ -463,7 +489,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.dev/categories/1234")
+    .url("https://backoffice.mailperformance.dev/categories/1234")
     .delete()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -479,6 +505,10 @@ var request = new RestRequest(Method.DELETE);
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -X DELETE "https://backoffice.mailperformance.com/categories/1234"
 ```
 
 This endpoint delete a specific category.

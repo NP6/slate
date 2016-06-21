@@ -51,6 +51,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/imports/12345"
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -314,6 +318,38 @@ IRestResponse response = client.Execute(request);
   </p>
 </blockquote>
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -H "Accept: application/vnd.mperf.v8.import.v1+json"
+     -X POST "https://backoffice.mailperformance.com/imports" -d '
+{
+    "name"                         : "Manual Import",
+    "features"                     : [
+        {
+            "type"                 : "segmentation",
+            "segmentId"            : 1234,
+            "emptyExisitingSegment": false
+        }, {
+            "type"                 : "duplicate",
+            "rules"                : {
+                "ignore"           : true
+            }
+        }, {
+            "type"                 : "report",
+            "sendFinalReport"      : true,
+            "sendErrorReport"      : true,
+            "contactGuids"         : ["1234ABCD"],
+            "groupIds"             : []
+        }, {
+            "type"                 : "database",
+            "updateExisting"       : true,
+            "crushData"            : false
+        }
+    ],
+    "binding"                      : 1234
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -474,6 +510,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/importFormats/1234"
 ```
 
 <blockquote class="lang-specific json">
@@ -665,6 +705,31 @@ request.AddBody(new {
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/importFormats" -d '
+{
+    "name"                  : "Binding file mail contact",
+    "separator"             : 59,
+    "startAt"               : 1,
+    "binds"                 : [
+        {
+            "columnIndex"   : 0,
+            "fieldId"       : 1234
+        },
+        {
+            "columnIndex"   : 1,
+            "fieldId"       : 1234
+        },
+        {
+            "columnIndex"   : 2,
+            "fieldId"       : -10
+        }
+    ],
+    "savedImportFormat"     : true
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -738,8 +803,8 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.dev/imports/12345/source",
-    CURLOPT_CUSTOMREQUEST   => "POST",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/imports/12345/source",
+    CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
     CURLOPT_TIMEOUT         => 30,
@@ -766,7 +831,7 @@ MediaType mediaType = MediaType.parse("application/octet-stream");
 RequestBody body = RequestBody.create(mediaType, fileContent);
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.dev/imports/12345/source")
+  .url("https://backoffice.mailperformance.com/imports/12345/source")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-disposition", "form-data; filename=filename.csv")
@@ -792,6 +857,14 @@ request.AddHeader("content-type", "application/octet-stream")
 request.AddParameter("application/octet-stream", fileContent, ParameterType.RequestBody);
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/octet-stream"
+     -H "Content-disposition: form-data; filename=filename.csv"
+     -H "Accept: application/vnd.mperf.v8.import.v1+json"
+     -X PUT "https://backoffice.mailperformance.com/imports/12345/source"
+     -d 'nom;prenom;email;\nDupont;Jean;JD@test.com'
 ```
 
 <blockquote class="lang-specific json">
@@ -909,6 +982,13 @@ request.AddBody(new {
 });
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -H "Accept: application/vnd.mperf.v8.import.v1+json"
+     -X POST "https://backoffice.mailperformance.com/imports/12345/executions"
+     -d '{ "binding": 1234 }'
 ```
 
 <blockquote class="lang-specific json">

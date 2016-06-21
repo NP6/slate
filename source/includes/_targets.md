@@ -53,6 +53,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/"
+```
+
 <blockquote class="lang-specific json">
   <p>The response from the API is an array structured like this:</p>
 </blockquote>
@@ -145,6 +149,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/000MLGPR"
 ```
 
 <blockquote class="lang-specific json">
@@ -282,6 +290,10 @@ IRestResponse response = client.Execute(request);
   </a>
   </p>
 </blockquote>
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets?unicity=test@test.com"
+```
 
 <blockquote class="lang-specific json">
   <p>The response from the API is a json structured like this:<br>
@@ -443,6 +455,16 @@ IRestResponse response = client.Execute(request);
   </a>
   </p>
 </blockquote>
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X PUT "https://backoffice.mailperformance.com/targets?unicity=test@test.com" -d '
+{
+    "8101": "Mr",
+    "8102": "Test",
+    "8103": "test@test.com"
+}'
+```
 
 <blockquote class="lang-specific json">
   <p>The response from the API is a json structured like this:<br>
@@ -609,6 +631,14 @@ IRestResponse response = client.Execute(request);
   </p>
 </blockquote>
 
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/targets/" -d '
+{
+    "8101": "Mr",
+    "8102": "Test",
+    "8103": "test@test.com"
+}'
+
 <blockquote class="lang-specific json">
   <p>The response from the API is a json structured like this:<br>
   Note: <b>bounce</b> and <b>redList</b> can be empty.</p>
@@ -748,6 +778,14 @@ IRestResponse response = client.Execute(request);
   Note: <b>bounce</b> and <b>redList</b> can be empty.</p>
 </blockquote>
 
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X PUT "https://backoffice.mailperformance.com/targets/000MLGPR" -d '
+{
+    "8101": "Mr",
+    "8102": "Test",
+    "8103": "test@test.com"
+}'
+
 ```json
 {
   "id": "000MLGPR",
@@ -865,6 +903,11 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345"
+```
+
 <blockquote class="lang-specific json">
 <p>No content</p>
 </blockquote>
@@ -927,7 +970,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.dev/targets/000MLGPR/segments/12345")
+    .url("https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345")
     .delete()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -943,6 +986,11 @@ var request = new RestRequest(Method.DELETE);
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X DELETE "https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -1007,7 +1055,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.dev/targets/000MLGPR")
+    .url("https://backoffice.mailperformance.com/targets/000MLGPR")
     .delete()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -1023,6 +1071,11 @@ var request = new RestRequest(Method.DELETE);
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X DELETE "https://backoffice.mailperformance.com/targets/000MLGPR"
 ```
 
 <blockquote class="lang-specific json">

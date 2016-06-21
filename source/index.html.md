@@ -5,6 +5,7 @@ language_tabs:
   - php: PHP
   - java: Java
   - csharp: C#
+  - shell: cURL
   - json: Response
 
 toc_footers:

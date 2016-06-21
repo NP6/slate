@@ -52,6 +52,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/actions/"
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -167,6 +171,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/actions/000ABC"
 ```
 
 <blockquote class="lang-specific json">
@@ -370,6 +378,26 @@ request.AddBody(new
 });
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/actions/" -d '
+{    
+    "type"              : "smsCampaign",
+    "name"              : "SMS Campaign From Doc",
+    "description"       : "This is a description",
+    "informations"      : {
+        "folder"        : null,
+        "category"      : null
+    },
+    "scheduler"         : {
+        "type"          : "asap"
+    },
+    "content"           : {
+        "textContent"   : "This is a sms content"
+    }
+}'
 ```
 
 <blockquote class="lang-specific json">
@@ -597,6 +625,26 @@ request.AddBody(new {
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X PUT "https://backoffice.mailperformance.com/actions/000ABC" -d '
+{    
+    "type"              : "smsCampaign",
+    "name"              : "SMS Campaign From Doc",
+    "description"       : "This is a description",
+    "informations"      : {
+        "folder"        : null,
+        "category"      : null
+    },
+    "scheduler"         : {
+        "type"          : "asap"
+    },
+    "content"           : {
+        "textContent"   : "This is a sms content"
+    }
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -703,7 +751,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.dev/actions/000ABC")
+    .url("https://backoffice.mailperformance.com/actions/000ABC")
     .delete()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -719,6 +767,10 @@ var request = new RestRequest(Method.DELETE);
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -X DELETE "https://backoffice.mailperformance.com/actions/000ABC"
 ```
 
 This endpoint delete a specific action.
@@ -796,6 +848,11 @@ IRestResponse response = client.Execute(request);
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/actions/000ABC/duplication"
+```
 
 ```json
 {
@@ -893,6 +950,11 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD"
 ```
 
 <blockquote class="lang-specific json">
@@ -1015,6 +1077,19 @@ request.AddBody(new {
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/actions/000ABC/validation" -d '
+{
+    "fortest"           : true,
+    "campaignAnalyser"  : false,
+    "testSegments"      : [14091],
+    "mediaForTest"      : null,
+    "textandHtml"       : false,
+    "comments"          : null
+}'
+```
+
 <blockquote class="lang-specific json">
   <p> The request doesn't return anything</p>
 </blockquote>
@@ -1105,6 +1180,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -X DELETE "https://backoffice.mailperformance.com/actions/000ABC/validation"
 ```
 
 <blockquote class="lang-specific json">

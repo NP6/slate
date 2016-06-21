@@ -52,6 +52,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/segments/"
+```
+
 <blockquote class="lang-specific json">
   <p>The response from the API is an array structured like this:<br>
   -> First json is for a dynamic segment<br>
@@ -150,6 +154,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/segments/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -332,6 +340,18 @@ IRestResponse response = client.Execute(request);
   </p>
 </blockquote>
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/segments/" -d '
+{
+  "name"        : "Test segment",
+  "description" : "Segment's description",
+  "isTest"      : true,
+  "type"        : "static",
+  "expiration"  : "2026-08-08T12:11:00Z"
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The response from the API is a json structured like this:<br>
   -> First json is for a dynamic segment</p>
@@ -477,6 +497,18 @@ request.AddBody(new {
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X PUT "https://backoffice.mailperformance.com/segments/12345" -d '
+{
+  "name"        : "Test segment",
+  "description" : "Segment's description",
+  "isTest"      : true,
+  "type"        : "static",
+  "expiration"  : "2026-08-08T12:11:00Z"
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The response from the API is a json structured like this:<br>
   -> First json is for a dynamic segment</p>
@@ -597,6 +629,11 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY"
+     -X DELETE "https://backoffice.mailperformance.com/segments/12345/targets"
+```
+
 <blockquote class="lang-specific json">
 <p>No content</p>
 </blockquote>
@@ -675,6 +712,11 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY"
+     -X DELETE "https://backoffice.mailperformance.com/segments/12345"
 ```
 
 <blockquote class="lang-specific json">

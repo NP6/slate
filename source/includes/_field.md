@@ -52,6 +52,10 @@ request.AddHeader("x-key", "YOUR XKEY");
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/fields/"
+```
+
 <blockquote class="lang-specific json">
   <p>The response from the API is an array structured like this:</p>
 </blockquote>
@@ -79,7 +83,7 @@ This endpoint retrieves all fields.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/actions`
+`GET https://backoffice.mailperformance.com/fields`
 
 ### Query Parameters
 
@@ -143,6 +147,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/fields/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -297,6 +305,21 @@ IRestResponse response = client.Execute(request);
   </p>
 </blockquote>
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X POST "https://backoffice.mailperformance.com/fields/" -d '
+{    
+    "type"        : "textField",
+    "name"        : "Firstname",
+    "isUnicity"   : false,
+    "isMandatory" : false,
+    "constraint"  : {
+      "operator"  : 4,
+      "value"     : "150"
+    }
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -445,6 +468,21 @@ request.AddBody(new {
 IRestResponse response = client.Execute(request);
 ```
 
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -X PUT "https://backoffice.mailperformance.com/fields/12345" -d '
+{    
+    "type"        : "textField",
+    "name"        : "Firstname",
+    "isUnicity"   : false,
+    "isMandatory" : false,
+    "constraint"  : {
+      "operator"  : 4,
+      "value"     : "150"
+    }
+}'
+```
+
 <blockquote class="lang-specific json">
   <p>The request returns a JSON structured like this: </p>
 </blockquote>
@@ -559,6 +597,10 @@ request.AddHeader("content-type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
 
 IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -X DELETE "https://backoffice.mailperformance.com/fields/12345"
 ```
 
 <blockquote class="lang-specific json">
