@@ -12,7 +12,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -33,7 +33,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/actions/")
+  .url("https://backoffice.mailperformance.com/actions/")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -42,7 +42,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/");
 
 var request = new RestRequest(Method.GET);
 
@@ -103,7 +103,7 @@ This endpoint retrieves all actions.
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/actions`
+`GET https://backoffice.mailperformance.com/actions`
 
 ### Query Parameters
 
@@ -129,7 +129,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -150,7 +150,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/actions/000ABC")
+  .url("https://backoffice.mailperformance.com/actions/000ABC")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -159,7 +159,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC");
 
 var request = new RestRequest(Method.GET);
 
@@ -231,7 +231,7 @@ This endpoint retrieves a specific action.
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/actions/<ID>`
+`GET https://backoffice.mailperformance.com/actions/<ID>`
 
 ### URL Parameters
 
@@ -279,7 +279,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -332,7 +332,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, mailMessage.toString());
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/actions/")
+  .url("https://backoffice.mailperformance.com/actions/")
   .post(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -343,7 +343,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/");
 
 var request = new RestRequest(Method.POST);
 
@@ -411,7 +411,7 @@ This endpoint creates an action.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/actions/`
+`POST https://backoffice.mailperformance.com/actions/`
 
 ### Query Parameters
 
@@ -526,7 +526,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -565,7 +565,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, updateAction.toString());
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.com/actions/000ABC")
+    .url("https://backoffice.mailperformance.com/actions/000ABC")
     .put(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -575,7 +575,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC");
 
 var request = new RestRequest(Method.PUT);
 
@@ -649,7 +649,7 @@ This endpoint update a specific action.
 
 ### HTTP Request
 
-`PUT https://v8.mailperformance.com/actions/<ID>`
+`PUT https://backoffice.mailperformance.com/actions/<ID>`
 
 ### URL Parameters
 
@@ -682,7 +682,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -712,7 +712,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -725,7 +725,7 @@ This endpoint delete a specific action.
 
 ### HTTP Request
 
-`DELETE https://v8.mailperformance.com/actions/<ID>`
+`DELETE https://backoffice.mailperformance.com/actions/<ID>`
 
 ### URL Parameters
 
@@ -753,7 +753,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC/duplication",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/duplication",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -774,7 +774,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.com/actions/000ABC/duplication")
+    .url("https://backoffice.mailperformance.com/actions/000ABC/duplication")
     .post()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -783,7 +783,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC/duplication");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/duplication");
 
 var request = new RestRequest(Method.POST);
 
@@ -825,7 +825,7 @@ This endpoint duplicate a specific action.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/actions/<ID>/duplication`
+`POST https://backoffice.mailperformance.com/actions/<ID>/duplication`
 
 ### URL Parameters
 
@@ -855,7 +855,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC/targets/0000ABCD",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -876,7 +876,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.com/actions/000ABC/targets/0000ABCD")
+    .url("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD")
     .post()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -885,7 +885,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC/targets/0000ABCD");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD");
 
 var request = new RestRequest(Method.POST);
 
@@ -907,7 +907,7 @@ This endpoint sends a specific message to a target.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/actions/<ID>/targets/<TARGETID>`
+`POST https://backoffice.mailperformance.com/actions/<ID>/targets/<TARGETID>`
 
 ### URL Parameters
 
@@ -950,7 +950,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC/validation",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/validation",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -983,7 +983,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, updateAction.toString());
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.com/actions/000ABC/validation")
+    .url("https://backoffice.mailperformance.com/actions/000ABC/validation")
     .put(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -993,7 +993,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC/validation");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/validation");
 
 var request = new RestRequest(Method.PUT);
 
@@ -1026,7 +1026,7 @@ This endpoint validate a specific action.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/actions/<ID>/validation`
+`POST https://backoffice.mailperformance.com/actions/<ID>/validation`
 
 ### URL Parameters
 
@@ -1067,7 +1067,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/actions/000ABC/validation",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/validation",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -1088,7 +1088,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-    .url("https://v8.mailperformance.com/actions/000ABC/validation")
+    .url("https://backoffice.mailperformance.com/actions/000ABC/validation")
     .delete()
     .addHeader("x-key", "YOUR XKEY")
     .build();
@@ -1097,7 +1097,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/actions/000ABC/validation");
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/validation");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -1118,7 +1118,7 @@ This endpoint unvalidate a specific action.
 
 ### HTTP Request
 
-`DELETE https://v8.mailperformance.com/actions/<ID>/validation`
+`DELETE https://backoffice.mailperformance.com/actions/<ID>/validation`
 
 ### URL Parameters
 

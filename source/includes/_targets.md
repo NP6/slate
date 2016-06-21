@@ -13,7 +13,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -34,7 +34,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets/")
+  .url("https://backoffice.mailperformance.com/targets/")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -43,7 +43,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/");
 
 var request = new RestRequest(Method.GET);
 
@@ -81,7 +81,7 @@ This endpoint retrieves all targets.
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/targets`
+`GET https://backoffice.mailperformance.com/targets`
 
 ### Query Parameters
 
@@ -107,7 +107,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/000MLGPR",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/000MLGPR",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -128,7 +128,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets/000MLGPR")
+  .url("https://backoffice.mailperformance.com/targets/000MLGPR")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -137,7 +137,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/000MLGPR");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/000MLGPR");
 
 var request = new RestRequest(Method.GET);
 
@@ -196,7 +196,7 @@ Code | Description
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/targets/<ID>`
+`GET https://backoffice.mailperformance.com/targets/<ID>`
 
 ### URL Parameters
 
@@ -216,7 +216,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets?unicity=test@test.com",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets?unicity=test@test.com",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -246,7 +246,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets?unicity=test@test.com")
+  .url("https://backoffice.mailperformance.com/targets?unicity=test@test.com")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -264,7 +264,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets?unicity=test@test.com");
+var client = new RestClient("https://backoffice.mailperformance.com/targets?unicity=test@test.com");
 
 var request = new RestRequest(Method.GET);
 
@@ -323,7 +323,7 @@ This endpoint retrieves a specific target using its unicity.
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/targets?unicity=<UNICITY>`
+`GET https://backoffice.mailperformance.com/targets?unicity=<UNICITY>`
 
 ### URL Parameters
 
@@ -361,7 +361,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets?unicity=test@test.com",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets?unicity=test@test.com",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -400,7 +400,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets?unicity=test@test.com")
+  .url("https://backoffice.mailperformance.com/targets?unicity=test@test.com")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -420,7 +420,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets?unicity=test@test.com");
+var client = new RestClient("https://backoffice.mailperformance.com/targets?unicity=test@test.com");
 
 var request = new RestRequest(Method.PUT);
 
@@ -484,7 +484,7 @@ This endpoint creates a target or update it if it already exists using its unici
 
 ### HTTP Request
 
-`PUT https://v8.mailperformance.com/targets?unicity=<UNICITY>`
+`PUT https://backoffice.mailperformance.com/targets?unicity=<UNICITY>`
 
 ### URL Parameters
 Parameter | Description
@@ -526,7 +526,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -565,7 +565,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets/")
+  .url("https://backoffice.mailperformance.com/targets/")
   .post(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -585,7 +585,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/");
 
 var request = new RestRequest(Method.POST);
 
@@ -649,7 +649,7 @@ This endpoint creates a target.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/targets/`
+`POST https://backoffice.mailperformance.com/targets/`
 
 ### Query Parameters
 
@@ -687,7 +687,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/000MLGPR",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/000MLGPR",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -717,7 +717,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets/000MLGPR")
+  .url("https://backoffice.mailperformance.com/targets/000MLGPR")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -728,7 +728,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/000MLGPR");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/000MLGPR");
 
 var request = new RestRequest(Method.PUT);
 
@@ -783,7 +783,7 @@ This endpoint updates a specific target.
 
 ### HTTP Request
 
-`PUT https://v8.mailperformance.com/targets/<ID>`
+`PUT https://backoffice.mailperformance.com/targets/<ID>`
 
 ### URL Parameters
 
@@ -819,7 +819,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/000MLGPR/segments/12345",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -842,7 +842,7 @@ OkHttpClient client = new OkHttpClient();
 
 MediaType mediaType = MediaType.parse("application/json");
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/targets/000MLGPR/segments/12345")
+  .url("https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345")
   .post(null)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -853,7 +853,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/000MLGPR/segments/12345");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345");
 
 var request = new RestRequest(Method.POST);
 
@@ -876,7 +876,7 @@ This endpoint add a specific target to a specific segment.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/targets/<targetID>/segments/<segmentID>`
+`POST https://backoffice.mailperformance.com/targets/<targetID>/segments/<segmentID>`
 
 ### URL Parameters
 
@@ -906,7 +906,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/000MLGPR/segments/12345",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -936,7 +936,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/000MLGPR/segments/12345");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/000MLGPR/segments/12345");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -966,7 +966,7 @@ Code | Description
 
 ### HTTP Request
 
-`DELETE https://v8.mailperformance.com/targets/<targetID>/segments/<segmentID>`
+`DELETE https://backoffice.mailperformance.com/targets/<targetID>/segments/<segmentID>`
 
 ### URL Parameters
 
@@ -986,7 +986,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/targets/000MLGPR",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/000MLGPR",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -1016,7 +1016,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/targets/000MLGPR");
+var client = new RestClient("https://backoffice.mailperformance.com/targets/000MLGPR");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -1036,7 +1036,7 @@ This endpoint deletes a specific target.
 
 ### HTTP Request
 
-`DELETE https://v8.mailperformance.com/targets/<ID>`
+`DELETE https://backoffice.mailperformance.com/targets/<ID>`
 
 ### URL Parameters
 

@@ -12,7 +12,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/segments/",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -33,7 +33,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/segments/")
+  .url("https://backoffice.mailperformance.com/segments/")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -42,7 +42,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/segments/");
+var client = new RestClient("https://backoffice.mailperformance.com/segments/");
 
 var request = new RestRequest(Method.GET);
 
@@ -86,7 +86,7 @@ This endpoint retrieves all segments.
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/segments`
+`GET https://backoffice.mailperformance.com/segments`
 
 ### Query Parameters
 
@@ -112,7 +112,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/segments/12345",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -133,7 +133,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/segments/12345")
+  .url("https://backoffice.mailperformance.com/segments/12345")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -142,7 +142,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/segments/12345");
+var client = new RestClient("https://backoffice.mailperformance.com/segments/12345");
 
 var request = new RestRequest(Method.GET);
 
@@ -192,7 +192,7 @@ This endpoint retrieves a specific segment.
 
 ### HTTP Request
 
-`GET https://v8.mailperformance.com/segments/<ID>`
+`GET https://backoffice.mailperformance.com/segments/<ID>`
 
 ### URL Parameters
 
@@ -232,7 +232,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/segments/",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -277,7 +277,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/segments/")
+  .url("https://backoffice.mailperformance.com/segments/")
   .post(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -301,7 +301,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/segments/");
+var client = new RestClient("https://backoffice.mailperformance.com/segments/");
 
 var request = new RestRequest(Method.POST);
 
@@ -372,7 +372,7 @@ This endpoint creates a segment.
 
 ### HTTP Request
 
-`POST https://v8.mailperformance.com/segments/`
+`POST https://backoffice.mailperformance.com/segments/`
 
 ### Query Parameters
 
@@ -416,7 +416,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/segments/12345",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -448,7 +448,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/segments/12345")
+  .url("https://backoffice.mailperformance.com/segments/12345")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -459,7 +459,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/segments/12345");
+var client = new RestClient("https://backoffice.mailperformance.com/segments/12345");
 
 var request = new RestRequest(Method.PUT);
 
@@ -517,7 +517,7 @@ This endpoint updates a specific segment.
 
 ### HTTP Request
 
-`PUT https://v8.mailperformance.com/segments/<ID>`
+`PUT https://backoffice.mailperformance.com/segments/<ID>`
 
 ### URL Parameters
 
@@ -557,7 +557,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/segments/12345/targets",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345/targets",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -578,7 +578,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/segments/12345/targets")
+  .url("https://backoffice.mailperformance.com/segments/12345/targets")
   .delete()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -587,7 +587,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/segments/12345/targets");
+var client = new RestClient("https://backoffice.mailperformance.com/segments/12345/targets");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -608,7 +608,7 @@ This endpoint empty a specific segment.
 
 ### HTTP Request
 
-`DELETE https://v8.mailperformance.com/segments/<ID>/targets`
+`DELETE https://backoffice.mailperformance.com/segments/<ID>/targets`
 
 ### URL Parameters
 
@@ -637,7 +637,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://v8.mailperformance.com/segments/12345",
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -658,7 +658,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://v8.mailperformance.com/segments/12345")
+  .url("https://backoffice.mailperformance.com/segments/12345")
   .delete()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -667,7 +667,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://v8.mailperformance.com/segments/12345");
+var client = new RestClient("https://backoffice.mailperformance.com/segments/12345");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -688,7 +688,7 @@ This endpoint deletes a specific segment.
 
 ### HTTP Request
 
-`DELETE https://v8.mailperformance.com/segments/<ID>`
+`DELETE https://backoffice.mailperformance.com/segments/<ID>`
 
 ### URL Parameters
 
