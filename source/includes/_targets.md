@@ -631,6 +631,7 @@ IRestResponse response = client.Execute(request);
   </p>
 </blockquote>
 
+```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
      -X POST "https://backoffice.mailperformance.com/targets/" -d '
 {
@@ -638,6 +639,7 @@ curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
     "8102": "Test",
     "8103": "test@test.com"
 }'
+```
 
 <blockquote class="lang-specific json">
   <p>The response from the API is a json structured like this:<br>
@@ -778,6 +780,7 @@ IRestResponse response = client.Execute(request);
   Note: <b>bounce</b> and <b>redList</b> can be empty.</p>
 </blockquote>
 
+```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
      -X PUT "https://backoffice.mailperformance.com/targets/000MLGPR" -d '
 {
@@ -785,6 +788,7 @@ curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
     "8102": "Test",
     "8103": "test@test.com"
 }'
+```
 
 ```json
 {
