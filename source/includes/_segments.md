@@ -345,7 +345,7 @@ curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
      -X POST "https://backoffice.mailperformance.com/segments/" -d '
 {
   "name"        : "Test segment",
-  "description" : "Segment's description",
+  "description" : "Segment\'s description",
   "isTest"      : true,
   "type"        : "static",
   "expiration"  : "2026-08-08T12:11:00Z"
