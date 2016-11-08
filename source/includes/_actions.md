@@ -988,6 +988,164 @@ Code | Description
 404 | Not found -- Your action ID was not found
 409 | Conflict
 
+## Send a specific V4 message Action with overrides
+
+```php
+<?php
+overrides = [
+    "views" => [
+        "html" => "my new HTML"
+    ],
+    "data" => [
+        "my_key" => "my value"
+    ]
+]
+$data = json_encode($overrides);
+$curl = curl_init();
+
+$httpHeader = [
+    "X-Key: YOUR XKEY",
+    "Content-Length: " . strlen($data),
+    "Content-Type: application/json",
+    "Accept": "application/vnd.mperf.v8.message"
+];
+
+$opts = [
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD",
+    CURLOPT_CUSTOMREQUEST   => "POST",
+    CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+    CURLOPT_RETURNTRANSFER  => true,
+    CURLOPT_TIMEOUT         => 30,
+    CURLOPT_HTTPHEADER      => $httpHeader,
+    CURLOPT_POSTFIELDS      => $data
+];
+
+curl_setopt_array($curl, $opts);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+?>
+```
+
+```java
+JSONObject viewOverride = new JSONObject();
+viewOverride.put("html", "my new HTML");
+
+JSONObject dataOverride = new JSONObject();
+dataOverride.put("my_key", "my value");
+
+JSONObject messageOverride = new JSONObject();
+messageOverride.put("views", viewOverride)
+    .put("data", dataOverride);
+
+OkHttpClient client = new OkHttpClient();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, messageOverride.toString());
+OkHttpClient client = new OkHttpClient();
+
+Request request = new Request.Builder()
+    .url("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD")
+    .post(body)
+    .addHeader("Content-Type", "application/json")
+    .addHeader("Accept", "application/vnd.mperf.v8.message")
+    .addHeader("X-Key", "YOUR XKEY")
+    .build();
+
+Response response = client.newCall(request).execute();
+```
+
+```csharp
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD");
+
+var request = new RestRequest(Method.POST)
+    .AddHeader("Content-Type", "application/json")
+    .AddHeader("Accept", "application/vnd.mperf.v8.message")
+    .AddHeader("X-Key", "YOUR XKEY")
+    .AddBody(new {
+        views = new {
+            html = "my new HTML"
+        },
+        data = new { 
+            my_key = "my value"
+        }
+    });
+
+var response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+     -H "Accept: application/vnd.mperf.v8.message"
+     -X POST
+     -d '{"views": {"html": "my new HTML"}, "data": {"my_key": "my value"}}'
+      "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD"
+```
+
+<blockquote class="lang-specific json" id="error-code-definitions">
+  <p> The full body of the request</p>
+</blockquote>
+```json
+{
+    "views": {
+        "subject": "My new subject",
+        "html": "my new HTML",
+        "text": "my new text",
+        "fromLabel": "My company",
+        "fromPrefix": "mycontact",
+        "replyTo": "reply@response.com"                
+    },
+    "data": {
+        "my_key": "my_value" 
+    },
+    "cc": [
+        "cc_target_id"
+    ],
+    "bcc": [
+        "bcc_target_id"
+    ]
+}
+```
+
+<blockquote class="lang-specific json">
+  <p> The request doesn't return anything</p>
+</blockquote>
+```json
+```
+
+This endpoint sends a v4 message to a target. You can override the parameters of the message.
+<aside class="notice">
+Check the language tab `Body / Response` to get all the parameters of the body to override a message
+</aside>
+
+### HTTP Request
+
+`POST https://backoffice.mailperformance.com/actions/<ID>/targets/<TARGETID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the action to send
+TARGETID | The ID of the target
+
+### Request header
+
+Name | Value
+---- | -----
+Accept | application/vnd.mperf.v8.message
+
+### Return Codes
+
+Code | Description
+---- | -----------
+200 | Success -- OK
+401 | Unauthorized -- Your API key is wrong
+403 | Forbidden -- You don't have permission for this request
+404 | Not found -- Your action ID was not found
+409 | Conflict
+
 ## Validate a specific Action
 
 ```php

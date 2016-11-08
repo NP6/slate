@@ -6,7 +6,7 @@ language_tabs:
   - java: Java
   - csharp: C#
   - shell: cURL
-  - json: Response
+  - json: Body / Response 
 
 toc_footers:
   - <a href='https://github.com/tripit/slate'>Documentation Powered by Slate</a>
