@@ -341,15 +341,16 @@ IRestResponse response = client.Execute(request);
 </blockquote>
 
 ```shell
-curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json" \
      -X POST "https://backoffice.mailperformance.com/segments/" -d '
 {
   "name"        : "Test segment",
-  "description" : "Segment\'s description",
+  "description" : "Segment description",
   "isTest"      : true,
   "type"        : "static",
   "expiration"  : "2026-08-08T12:11:00Z"
 }'
+
 ```
 
 <blockquote class="lang-specific json">
@@ -502,7 +503,7 @@ curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
      -X PUT "https://backoffice.mailperformance.com/segments/12345" -d '
 {
   "name"        : "Test segment",
-  "description" : "Segment's description",
+  "description" : "Segment description",
   "isTest"      : true,
   "type"        : "static",
   "expiration"  : "2026-08-08T12:11:00Z"
@@ -746,3 +747,135 @@ Code | Description
 401 | Unauthorized -- Your API key is wrong
 403 | Forbidden -- You don't have permission for this request
 404 | Not found -- Your segment ID was not found
+
+## Update the segment with the target unicities
+
+```php
+<?php
+$unicities = [
+    "unicity1",
+    "unicity2",
+    "unicity3"
+]
+$data = json_encode($unicities);
+$curl = curl_init();
+
+$httpHeader = [
+    "x-key: YOUR XKEY",
+    "Content-Length: " . strlen($data),
+    "content-type: application/json",
+    "Accept: application/vnd.mperf.v8.unicity"
+];
+
+$opts = [
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345/targets",
+    CURLOPT_CUSTOMREQUEST   => "PUT",
+    CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+    CURLOPT_RETURNTRANSFER  => true,
+    CURLOPT_TIMEOUT         => 30,
+    CURLOPT_HTTPHEADER      => $httpHeader,
+    CURLOPT_POSTFIELDS      => $data
+];
+
+curl_setopt_array($curl, $opts);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+?>
+```
+
+```java
+string[] stringArray = {
+    "unicity1",
+    "unicity2",
+    "unicity3"
+};
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, Arrays.toString(stringArray));
+Request request = new Request.Builder()
+  .url("https://backoffice.mailperformance.com/segments/:idSegment/targets")
+  .put(body)
+  .addHeader("X-Key", "YOUR XKEY")
+  .addHeader("Accept", "application/vnd.mperf.v8.unicity")
+  .addHeader("Content-Type", "application/json")
+  .build();
+
+Response response = client.newCall(request).execute();
+```
+
+```csharp
+var client = new RestClient("https://backoffice.mailperformance.com/segments/:idSegment/targets");
+
+var request = new RestRequest(Method.PUT);
+
+request.AddHeader("Content-Type", "application/json")
+    .AddHeader("Accept", "application/vnd.mperf.v8.unicity")
+    .AddHeader("X-Key", "YOUR XKEY")
+    .AddBody([
+        "unicity1",
+        "unicity2",
+        "unicity3"
+    ]);
+
+IRestResponse response = client.Execute(request);
+```
+
+```shell
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json" \
+     -H "Accept: application/vnd.mperf.v8.unicity" \
+     -X PUT \
+     -d '["unicity1","unicity2","unicity3"]' \
+     "https://backoffice.mailperformance.com/segments/:idSegment/targets"
+```
+
+
+<blockquote class="lang-specific json" id="error-code-definitions">
+  <p> The full body of the request</p>
+</blockquote>
+```json
+[
+ "unicity1",
+ "unicity2",
+ "unicity3"
+]
+```
+
+<blockquote class="lang-specific json">
+<p>The response from the API returns the number of target inserted into the segment<br>
+</blockquote>
+
+```json
+```
+
+This endpoint update a specific segment with targets defined by their unicities.
+
+### HTTP Request
+
+`PUT https://backoffice.mailperformance.com/segments/{id}/targets<ID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the segment to update
+
+### Query Parameters
+
+Type | Required | Description
+---- | -------- | -----------
+string array | true | string array of targets unicities
+
+### Return Codes
+
+Code | Description
+---- | -----------
+200 | Success -- OK
+400 | Bad Request 
+401 | Unauthorized -- Your API key is wrong
+403 | Forbidden -- You don't have permission for this request
+404 | Not found -- Your segment ID was not found
+409 | Conflict
