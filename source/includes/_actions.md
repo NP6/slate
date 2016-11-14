@@ -992,7 +992,7 @@ Code | Description
 
 ```php
 <?php
-overrides = [
+$overrides = [
     "views" => [
         "html" => "my new HTML"
     ],
@@ -1007,7 +1007,7 @@ $httpHeader = [
     "X-Key: YOUR XKEY",
     "Content-Length: " . strlen($data),
     "Content-Type: application/json",
-    "Accept": "application/vnd.mperf.v8.message"
+    "Accept: application/vnd.mperf.v8.message"
 ];
 
 $opts = [
@@ -1040,17 +1040,16 @@ JSONObject messageOverride = new JSONObject();
 messageOverride.put("views", viewOverride)
     .put("data", dataOverride);
 
-OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, messageOverride.toString());
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
     .url("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD")
-    .post(body)
     .addHeader("Content-Type", "application/json")
     .addHeader("Accept", "application/vnd.mperf.v8.message")
     .addHeader("X-Key", "YOUR XKEY")
+    .post(body)
     .build();
 
 Response response = client.newCall(request).execute();
@@ -1076,10 +1075,10 @@ var response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
-     -H "Accept: application/vnd.mperf.v8.message"
-     -X POST
-     -d '{"views": {"html": "my new HTML"}, "data": {"my_key": "my value"}}'
+curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json" \
+     -H "Accept: application/vnd.mperf.v8.message" \
+     -X POST \
+     -d '{"views": {"html": "my new HTML"}, "data": {"my_key": "my value"}}' \
       "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD"
 ```
 
