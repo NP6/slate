@@ -988,7 +988,7 @@ Code | Description
 404 | Not found -- Your action ID was not found
 409 | Conflict
 
-## Send a specific V4 message Action with overrides
+## Send a V4 message with overrides
 
 ```php
 <?php
