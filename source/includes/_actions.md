@@ -1145,6 +1145,208 @@ Code | Description
 404 | Not found -- Your action ID was not found
 409 | Conflict
 
+
+## Send a V4 message with attachments
+
+```php
+<?php
+
+$overrides = [
+    "views" => [
+        "subject" => "My new subject"
+    ]
+];
+$data = json_encode($overrides);
+$curl = curl_init();
+
+$httpHeader = [
+    "X-Key: YOUR XKEY",
+    "Accept: application/vnd.mperf.v8.id.v1"
+];
+
+$file_name_with_full_path = realpath('path_to_the_file.jpg');
+
+$nameModel = "model.json"; //On donne un nom au fichier que nous allons crée
+$modelFile = fopen($nameModel, "w"); //On crée le fichier model
+fwrite($modelFile, $data); //On le remplit
+fclose($modelFile); //On le ferme aprés l'avoir remplit
+
+$postfields = array(
+    'model' => new CURLFILE($nameModel, "application/json"),
+    'attachments' => new CURLFile($file_name_with_full_path, 'image/jpeg', 'filename.jpg')
+);
+
+$opts = [
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD",
+    CURLOPT_CUSTOMREQUEST   => "POST",
+    CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+    CURLOPT_RETURNTRANSFER  => true,
+    CURLOPT_TIMEOUT         => 30,
+    CURLOPT_HTTPHEADER      => $httpHeader,
+    CURLOPT_POSTFIELDS      => $postfields
+];
+
+try {
+    $ok = curl_setopt_array($curl, $opts);
+
+    if( ! $result = curl_exec($curl)) 
+    { 
+        $err = curl_error($curl);
+    } 
+}
+finally {
+    curl_close($curl);
+}
+
+?>
+```
+
+```java
+/* **** Dependencies *****
+com.squareup.okhttp3:okhttp:3.4.22
+org.apache.clerezza.ext:org.json.simple:0.42
+*************************/
+
+JSONObject modelOverride = new JSONObject();
+JSONObject viewOverride = new JSONObject();
+viewOverride.put("subject", "My new subject");
+modelOverride.put("views", viewOverride);
+
+byte[] model = modelOverride.toString().getBytes();
+
+OkHttpClient client = new OkHttpClient();
+
+RequestBody requestBody = new MultipartBody.Builder()
+    .setType(MultipartBody.FORM)
+    .addFormDataPart("model", "model.json",
+            RequestBody.create(MEDIA_TYPE_JSON, model, 0, model.length))
+    .addFormDataPart("attachments", "image.jpg",
+            RequestBody.create(MEDIA_TYPE_PNG, new File("path_to_the_file.jpg")))
+    .build();
+
+Request request = new Request.Builder()
+    .url("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD")
+    .addHeader("Accept", "application/vnd.mperf.v8.id.v1")
+    .addHeader("X-Key", "YOUR XKEY")
+    .post(requestBody)
+    .build();
+
+try {
+    client.newCall(request).execute();
+    System.out.println("Mail sent");
+}
+catch (Exception e){
+}
+```
+
+```csharp
+/* **** Dependencies *****
+RestSharp 105.2.3
+*************************/
+
+var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD");
+
+var request = new RestRequest(Method.POST)
+    .AddHeader("Content-Type", "multipart/form-data")
+    .AddHeader("Accept", "application/vnd.mperf.v8.id.v1")
+    .AddHeader("X-Key", "YOUR XKEY")
+	.AddParameter("model", "{'views': {'subject': 'My new subject'}}", "application/json", ParameterType.RequestBody)
+	.AddFile("attachments", "path_to_the_file.jpg")
+    ;
+var response = client.Execute(request);
+
+```
+
+```shell
+ curl -H "Accept: application/vnd.mperf.v8.id.v1" \
+      -H "X-Key: YOUR XKEY" \
+      -X POST \
+      -F "attachments=@C:\\path_to_the_file.jpg" \
+      -F "model={'views': {'subject': 'My new subject'}};type=application/json" \
+      "https://backoffice.mailperformance.com/actions/000ABC/targets/0000ABCD"
+
+```
+
+<blockquote class="lang-specific json" id="error-code-definitions">
+  <p> The full body of the request</p>
+</blockquote>
+```json
+------boundary
+Content-Disposition: form-data; name="attachments"; filename="maxresdefault.jpg"
+Content-Type: image/jpeg
+
+........
+------boundary
+Content-Disposition: form-data; name="model"
+Content-Type: application/json
+
+{
+    "views": {
+        "subject": "My new subject",
+        "html": "my new HTML",
+        "text": "my new text",
+        "fromLabel": "My company",
+        "fromPrefix": "mycontact",
+        "replyTo": "reply@response.com"                
+    },
+    "data": {
+        "my_key": "my_value" 
+    },
+    "cc": [
+        "cc_target_id"
+    ],
+    "bcc": [
+        "bcc_target_id"
+    ]
+}
+------boundary
+
+```
+<blockquote class="lang-specific json">
+  <p> The request doesn't return anything</p>
+</blockquote>
+```json
+```
+
+This endpoint sends a v4 message to a target with attachments. You can also override the parameters of the message.
+<aside class="notice">
+Check the language tab `Body / Response` to get all the parameters of the body to override a message
+</aside>
+
+### HTTP Request
+
+`POST https://backoffice.mailperformance.com/actions/<ID>/targets/<TARGETID>`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the action to send
+TARGETID | The ID of the target
+
+### Request header
+
+Name | Value
+---- | -----
+Content-Type | multipart/form-data
+Accept | application/vnd.mperf.v8.id.v1
+
+### Request payload
+Name | Type | Description
+---- | ---- | -----
+attachments | image/jpeg | The file to send with the Email
+model | application/json | The model to override the Email 
+
+### Return Codes
+
+Code | Description
+---- | -----------
+200 | Success -- OK
+401 | Unauthorized -- Your API key is wrong
+403 | Forbidden -- You don't have permission for this request
+404 | Not found -- Your action ID was not found
+409 | Conflict
+
 ## Validate a specific Action
 
 ```php
