@@ -11,7 +11,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/statistics",
+    CURLOPT_URL             => "https://api-cm.np6.com/actions/000ABC/statistics",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
