@@ -11,4 +11,4 @@ Error Code | Meaning
 409 | Conflict -- This resource already exists
 410 | Gone -- The resource requested has been removed from our servers
 500 | Internal Server Error -- We had a problem with our server. Try again later.
-503 | Service Unavailable -- We're temporarially offline for maintanance. Please try again later.
+503 | Service Unavailable -- We're temporarily  offline for maintenance. Please try again later.

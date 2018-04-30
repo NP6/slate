@@ -69,7 +69,7 @@ curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/imports/12345
     {
       "type": "segmentation",
       "segmentId": 12345,
-      "emptyExisitingSegment": false
+      "emptyExistingSegment": false
     },
     {
       "type": "duplicate",
@@ -422,7 +422,7 @@ features | array | false | Array containing all the features of the import
 ---- contactGuids | string[] | true | String array of all contact that will receive import report
 ---- groupIds | int[] | true | Int array of all groups that will receive import report
 ---- updateExisting | bool | true | Specify if the existing target will be update with the import
----- crushData | bool | true | Specify if the import will be crush the data
+---- crushData | bool | true | Specify if the import will be crush by the data
 binding | int | false | Id of the binding to use with the import
 scheduler | object | false | Scheduler object for auto import
 ---- type | string | true | For import automatic : type = "periodic"

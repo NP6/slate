@@ -353,7 +353,7 @@ type | string | true | Field's type ['singleSelectList', 'multipleSelectList', '
 name | string | true | Field's name
 isUnicity | boolean | true | True if used for unicity, no otherwise
 isMandatory | boolean | true | True if the field is mandatory, no otherwise
-constraint | object | false | Define a contraint for this field
+constraint | object | false | Define a constraint for this field
 ---- operaor | int | false | Constraint operator
 ---- value | string | false | Constraint value
 valueListId | int | false | The id of the associated value list
@@ -523,7 +523,7 @@ name | string | true | Field's name
 isUnicity | boolean | true | True if used for unicity, no otherwise
 isMandatory | boolean | true | True if the field is mandatory, no otherwise
 constraint | object | false | Define a contraint for this field
----- operaor | int | false | Constraint operator
+---- operator | int | false | Constraint operator
 ---- value | string | false | Constraint value
 valueListId | int | false | The id of the associated value list
 

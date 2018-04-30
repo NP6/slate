@@ -121,6 +121,17 @@ Code | Description
 401 | Unauthorized -- Your API key is wrong
 403 | Forbidden -- You don't have permission for this request
 
+### Action state list
+
+CampaignWorkflowState           |
+--------------------------------|
+Creation = 10                   |
+AskingValidation = 38		|
+WaitingValidation = 40		|
+Validated = 50	    		|
+Deleted = 90			|
+
+
 ## Get a specific Campaign
 
 ```php
@@ -454,7 +465,7 @@ informations | object | true | Object that contains multiple informations
 ---- folder | int | false | ID of the folder that will contain the sms campaign
 ---- category | int | false | ID of the category of the campaign
 scheduler | object | false | Schedule the sending date
----- type | string | true | String representing the Sending Date ("asap" to lunch it right after validation)
+---- type | string | true | String representing the Sending Date ("asap" to launch it right after validation)
 content | object | true | Content of the sms
 ---- textContent | string | true | Content of the sms but in plain text fomat
 
@@ -1301,7 +1312,7 @@ The conversation id
 "36c93e82-dc16-4a72-bc36-63ecd2883f31"
 ```
 
-See the section [Conversaton](?json#conversations)
+See the section [Conversation](?json#conversations)
 
 ### Return Codes
 

@@ -396,6 +396,18 @@ Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
 
+### Cible state
+
+public enum CibleState		|
+--------------------------------|
+Validé = 3			|
+Soft = 4 			|
+HardDomain = 51			|
+HardUser = 52			|
+HardOther = 53			|
+HardRules = 54			|
+ReportAsSpam = 6		|
+
 ### Return Codes
 
 Code | Description
@@ -497,6 +509,23 @@ Code | Description
 401 | Unauthorized -- Your API key is wrong
 403 | Forbidden -- You don't have permission for this request
 
+### Redlist Types
+
+Values | Meaning
+------------- | -----------------
+public enum RedListOrigin |
+  Unknow = 0,             | Unknown type
+  Api = 1,                | Listed by API
+  Imports = 2,            | Listed by imports
+  Forms = 3,              | Listed by form
+  ListUnsubscribe = 4,    | Listed in unsubscribe redlist
+  Complaint = 5,          | Listed in complaint
+  Stop = 6,               | Listed in SMS Stop
+  Blacklist = 7,          | Listed in SMS Blacklist
+  Administrative = 8,     | Listed in SMS admnistrative
+  Specifique = 9          | Listed in SMS specifique
+		    
+
 ## Get all redlist Targets (sms)
 
 ```php
@@ -580,3 +609,19 @@ Code | Description
 200 | Success -- OK
 401 | Unauthorized -- Your API key is wrong
 403 | Forbidden -- You don't have permission for this request
+
+### Redlist Types
+
+Values | Meaning
+------------- | -----------------
+public enum RedListOrigin |
+  Unknow = 0,             | Unknown type
+  Api = 1,                | Listed by API
+  Imports = 2,            | Listed by imports
+  Forms = 3,              | Listed by form
+  ListUnsubscribe = 4,    | Listed in unsubscribe redlist
+  Complaint = 5,          | Listed in complaint
+  Stop = 6,               | Listed in SMS Stop
+  Blacklist = 7,          | Listed in SMS Blacklist
+  Administrative = 8,     | Listed in SMS admnistrative
+  Specifique = 9          | Listed in SMS specifique

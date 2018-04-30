@@ -341,7 +341,7 @@ This endpoint retrieves a specific target using its unicity.
 
 Parameter | Description
 --------- | -----------
-UNICITY | The uncity of the target to retrieve
+UNICITY | The unicity of the target to retrieve
 
 ### Return Codes
 
@@ -1016,6 +1016,7 @@ Code | Description
 404 | Not found -- Your target or segment ID was not found
 409 | Conflict -- You can't remove a target from a dynamic segment
 
+
 ### HTTP Request
 
 `DELETE https://backoffice.mailperformance.com/targets/<targetID>/segments/<segmentID>`
@@ -1109,3 +1110,155 @@ Code | Description
 401 | Unauthorized -- Your API key is wrong
 403 | Forbidden -- You don't have permission for this request
 404 | Not found -- Your target ID was not found
+
+
+
+### HTTP Request
+
+`DELETE https://backoffice.mailperformance.com/targets`
+
+### Query Parameters
+
+None
+
+## Delete Targets
+
+```php
+<?php
+$curl = curl_init();
+
+/*
+Unicity criterias are defined in an array, for instance ["email"] or ["email","name"]...
+depenging on the configuration, thereby:
+*/
+
+// Notice that they are exclusives examples, thus only one can be choose depending on the usage.
+
+// If unicity is specified
+$value = [["t1@test.com"],["t2@toto.com"]] 
+// If Id Target is specified
+$value = ["12345","12345"] 
+// If segment is specified
+$value = XX // XX being the id of the segment, numerical type
+
+$targets = [
+    "type" => "unicity", // or id or segment
+    "value" => $value
+]
+
+$data = json_encode($targets);
+
+$httpHeader = [
+    "x-key: YOUR XKEY",
+    "Content-Type: application/json",
+    "Content-Length: " . strlen($data),
+    "Accept: application/vnd.np6.cm.v1",
+    "Accept: application/vnd.np6.cm.v1+json"
+];
+
+$opts = [
+    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets",
+    CURLOPT_CUSTOMREQUEST   => "DELETE",
+    CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
+    CURLOPT_RETURNTRANSFER  => true,
+    CURLOPT_TIMEOUT         => 30,
+    CURLOPT_HTTPHEADER      => $httpHeader,
+    CURLOPT_POSTFIELDS      => $data,
+];
+
+curl_setopt_array($curl, $opts);
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+?>
+```
+
+```java
+
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create(mediaType, "{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@test.com\"],\n\t\t[\"t2@toto.com\"]\n\t]\n}");
+Request request = new Request.Builder()
+  .url("https://api-cm.np6.com/targets")
+  .delete(body)
+  .addHeader("x-key", "YOUR XKEY")
+  .addHeader("Content-Type", "application/json")
+  .addHeader("Accept", "application/vnd.np6.cm.v1")
+  .build();
+
+Response response = client.newCall(request).execute();
+
+```
+
+```csharp
+
+var client = new RestClient("https://api-cm.np6.com/targets");
+var request = new RestRequest(Method.DELETE);
+request.AddHeader("Accept", "application/vnd.np6.cm.v1");
+request.AddHeader("Content-Type", "application/json");
+request.AddHeader("x-key", "YOUR XKEY");
+request.AddParameter("undefined", "{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@test.com\"],\n\t\t[\"t2@test.com\"]\n\t]\n}", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+
+```
+
+```shell
+
+curl -X DELETE \
+  https://api-cm.np6.com/targets \
+  -H 'Accept: application/vnd.np6.cm.v1' \
+  -H 'Content-Type: application/json' \
+  -H 'x-key: YOUR XKEY' \
+  -d '{
+    "type": "unicity",
+    "value": [
+        ["t1@test.com"],
+        ["t2@toto.com"]
+    ]
+}'
+
+```
+
+<blockquote class="lang-specific json">
+<p>The request returns a JSON structured like this:</p>
+</blockquote>
+
+```json
+[  
+  {    
+    "id": "000JW54T",    
+    "unicity": [      
+      "t1@test.com"    
+      ]  
+    },  
+    {    
+      "id": "000JW54V",    
+      "unicity": [      
+        "t2@toto.fr"    
+        ]  
+    } 
+]
+```
+
+This endpoint deletes targets.
+
+### HTTP Request
+
+`DELETE https://backoffice.mailperformance.com/targets`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+None
+
+### Return Codes
+
+Code | Description
+---- | -----------
+401 | Unauthorized -- Your API key is wrong
+403 | Forbidden -- You don't have permission for this request
+404 | Not found -- The requested targets cannot be found

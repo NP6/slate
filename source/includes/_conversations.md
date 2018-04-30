@@ -92,7 +92,7 @@ Name | Description
 requested | The message has been handled by the platform
 received | The smtp server has sent the message
 bounced | The message has bounced
-canceled | The message has been canceled before be sent to the smtp server (ex: an error has occured during the rendering of the mail)
+canceled | The message has been canceled before being sent to the smtp server (ex: an error has occured during the rendering of the mail)
 
 ### Return Codes
 
