@@ -1129,7 +1129,7 @@ $curl = curl_init();
 
 /*
 Unicity criterias are defined in an array, for instance ["email"] or ["email","name"]...
-depenging on the configuration, thereby:
+depending on the configuration, thereby:
 */
 
 // Notice that they are exclusives examples, thus only one can be choose depending on the usage.
