@@ -1,4 +1,3 @@
-
 #Target
 
 ## Get all Targets
@@ -1139,7 +1138,7 @@ $value = [["t1@mondomaine.com"],["t2@mondomaine.com"]]
 // If Id Target is specified
 $value = ["12345","12345"] 
 // If segment is specified
-$value = XX // XX being the id of the segment, numerical type
+$value = XX // XX being the id of the segment, alphanumerical type
 
 $targets = [
     "type" => "unicity", // or id or segment
@@ -1206,7 +1205,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-
+// Deletion using unicity criterias:
 curl -X DELETE \
   https://api-cm.np6.com/targets \
   -H 'Accept: application/vnd.np6.cm.v1' \
@@ -1220,6 +1219,33 @@ curl -X DELETE \
     ]
 }'
 
+// Deletion using target ids:
+curl -X DELETE \
+ https://api-cm.np6.com/targets \
+ -H 'Accept: application/vnd.np6.cm.v1' \
+ -H 'Content-Type: application/json' \
+ -H 'x-key: YOUR XKEY' \
+ -d '{
+    "type": "id",
+    "value": [
+    	["12345"],
+	["12345"]
+    ]
+}'
+
+// Deletion using segment id, XXXXXX being the id of the needed segment (alphanumerical type)
+curl -X DELETE \
+  https://api-cm.np6.com/targets \
+  -H 'Accept: application/vnd.np6.cm.v1' \
+  -H 'Content-Type: application/json' \
+  -H 'x-key: YOUR XKEY' \
+  -d '{
+     "type": "segment",
+     "value": [
+	"XXXXXX",
+	"XXXXXX"
+      ]
+}'
 ```
 
 <blockquote class="lang-specific json">
