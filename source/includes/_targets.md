@@ -1135,7 +1135,7 @@ depending on the configuration, thereby:
 // Notice that they are exclusives examples, thus only one can be choose depending on the usage.
 
 // If unicity is specified
-$value = [["t1@test.com"],["t2@toto.com"]] 
+$value = [["t1@mondomaine.com"],["t2@mondomaine.com"]] 
 // If Id Target is specified
 $value = ["12345","12345"] 
 // If segment is specified
@@ -1180,7 +1180,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create(mediaType, "{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@test.com\"],\n\t\t[\"t2@toto.com\"]\n\t]\n}");
+RequestBody body = RequestBody.create(mediaType, "{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@mondomaine.com\"],\n\t\t[\"t2@mondomaine.com\"]\n\t]\n}");
 Request request = new Request.Builder()
   .url("https://api-cm.np6.com/targets")
   .delete(body)
@@ -1200,7 +1200,7 @@ var request = new RestRequest(Method.DELETE);
 request.AddHeader("Accept", "application/vnd.np6.cm.v1");
 request.AddHeader("Content-Type", "application/json");
 request.AddHeader("x-key", "YOUR XKEY");
-request.AddParameter("undefined", "{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@test.com\"],\n\t\t[\"t2@test.com\"]\n\t]\n}", ParameterType.RequestBody);
+request.AddParameter("undefined", "{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@mondomaine.com\"],\n\t\t[\"t2@mondomaine.com\"]\n\t]\n}", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 
 ```
@@ -1215,8 +1215,8 @@ curl -X DELETE \
   -d '{
     "type": "unicity",
     "value": [
-        ["t1@test.com"],
-        ["t2@toto.com"]
+        ["t1@mondomaine.com"],
+        ["t2@mondomaine.com"]
     ]
 }'
 
@@ -1231,13 +1231,13 @@ curl -X DELETE \
   {    
     "id": "000JW54T",    
     "unicity": [      
-      "t1@test.com"    
+      "t1@mondomaine.com"    
       ]  
     },  
     {    
       "id": "000JW54V",    
       "unicity": [      
-        "t2@toto.fr"    
+        "t2@mondomaine.fr"    
         ]  
     } 
 ]
