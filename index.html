@@ -6433,7 +6433,7 @@ depending on the configuration, thereby:
 <span class="c1">// Notice that they are exclusives examples, thus only one can be choose depending on the usage.
 </span>
 <span class="c1">// If unicity is specified
-</span><span class="nv">$value</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"t1@test.com"</span><span class="p">],[</span><span class="s2">"t2@toto.com"</span><span class="p">]]</span> 
+</span><span class="nv">$value</span> <span class="o">=</span> <span class="p">[[</span><span class="s2">"t1@mondomaine.com"</span><span class="p">],[</span><span class="s2">"t2@mondomaine.com"</span><span class="p">]]</span> 
 <span class="c1">// If Id Target is specified
 </span><span class="nv">$value</span> <span class="o">=</span> <span class="p">[</span><span class="s2">"12345"</span><span class="p">,</span><span class="s2">"12345"</span><span class="p">]</span> 
 <span class="c1">// If segment is specified
@@ -6476,7 +6476,7 @@ depending on the configuration, thereby:
 <span class="n">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="n">OkHttpClient</span><span class="o">();</span>
 
 <span class="n">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="n">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
-<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@test.com\"],\n\t\t[\"t2@toto.com\"]\n\t]\n}"</span><span class="o">);</span>
+<span class="n">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="n">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="n">mediaType</span><span class="o">,</span> <span class="s">"{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@mondomaine.com\"],\n\t\t[\"t2@mondomaine.com\"]\n\t]\n}"</span><span class="o">);</span>
 <span class="n">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
   <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api-cm.np6.com/targets"</span><span class="o">)</span>
   <span class="o">.</span><span class="na">delete</span><span class="o">(</span><span class="n">body</span><span class="o">)</span>
@@ -6494,7 +6494,7 @@ depending on the configuration, thereby:
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Accept"</span><span class="p">,</span> <span class="s">"application/vnd.np6.cm.v1"</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"Content-Type"</span><span class="p">,</span> <span class="s">"application/json"</span><span class="p">);</span>
 <span class="n">request</span><span class="p">.</span><span class="nf">AddHeader</span><span class="p">(</span><span class="s">"x-key"</span><span class="p">,</span> <span class="s">"YOUR XKEY"</span><span class="p">);</span>
-<span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"undefined"</span><span class="p">,</span> <span class="s">"{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@test.com\"],\n\t\t[\"t2@test.com\"]\n\t]\n}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
+<span class="n">request</span><span class="p">.</span><span class="nf">AddParameter</span><span class="p">(</span><span class="s">"undefined"</span><span class="p">,</span> <span class="s">"{\n\t\"type\": \"unicity\",\n\t\"value\": [\n\t\t[\"t1@mondomaine.com\"],\n\t\t[\"t2@mondomaine.com\"]\n\t]\n}"</span><span class="p">,</span> <span class="n">ParameterType</span><span class="p">.</span><span class="n">RequestBody</span><span class="p">);</span>
 <span class="n">IRestResponse</span> <span class="n">response</span> <span class="p">=</span> <span class="n">client</span><span class="p">.</span><span class="nf">Execute</span><span class="p">(</span><span class="n">request</span><span class="p">);</span>
 
 </code></pre>
@@ -6507,8 +6507,8 @@ curl -X DELETE <span class="se">\</span>
   -d <span class="s1">'{
     "type": "unicity",
     "value": [
-        ["t1@test.com"],
-        ["t2@toto.com"]
+        ["t1@mondomaine.com"],
+        ["t2@mondomaine.com"]
     ]
 }'</span>
 
@@ -6521,13 +6521,13 @@ curl -X DELETE <span class="se">\</span>
   </span><span class="p">{</span><span class="w">    
     </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000JW54T"</span><span class="p">,</span><span class="w">    
     </span><span class="nt">"unicity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">      
-      </span><span class="s2">"t1@test.com"</span><span class="w">    
+      </span><span class="s2">"t1@mondomaine.com"</span><span class="w">    
       </span><span class="p">]</span><span class="w">  
     </span><span class="p">},</span><span class="w">  
     </span><span class="p">{</span><span class="w">    
       </span><span class="nt">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"000JW54V"</span><span class="p">,</span><span class="w">    
       </span><span class="nt">"unicity"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">      
-        </span><span class="s2">"t2@toto.fr"</span><span class="w">    
+        </span><span class="s2">"t2@mondomaine.fr"</span><span class="w">    
         </span><span class="p">]</span><span class="w">  
     </span><span class="p">}</span><span class="w"> 
 </span><span class="p">]</span><span class="w">
