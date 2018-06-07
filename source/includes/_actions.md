@@ -267,7 +267,7 @@ Code | Description
 403 | Forbidden -- You don't have permission for this request
 404 | Not Found -- Your action ID was not found
 
-## Create an SMS Action
+## Create a SMS Action
 
 ```php
 <?php
