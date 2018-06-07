@@ -267,7 +267,7 @@ Code | Description
 403 | Forbidden -- You don't have permission for this request
 404 | Not Found -- Your action ID was not found
 
-## Create an Action
+## Create an SMS Action
 
 ```php
 <?php
@@ -446,7 +446,7 @@ curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
 }
 ```
 
-This endpoint creates an action.
+This endpoint creates a SMS action (Campaign or message).
 
 ### HTTP Request
 
@@ -469,11 +469,287 @@ scheduler | object | false | Schedule the sending date
 content | object | true | Content of the sms
 ---- textContent | string | true | Content of the sms but in plain text fomat
 
+#### SMS Message
+
+Property | Type | Required | Description
+-------- | ---- | -------- | -----------
+type | string | true | Action's type ("smsMessage" for a sms message)
+name | string | true | Action's name
+description | string | true | Action's description
+informations | object | true | Object that contains multiple informations
+---- folder | int | false | ID of the folder that will contain the sms campaign
+---- category | int | false | ID of the category of the campaign
+content | object | true | Content of the sms
+---- textContent | string | true | Content of the sms but in plain text fomat
+
+### Return Codes
+
+Code | Description
+---- | -----------
+200 | Success -- OK
+401 | Unauthorized -- Your API key is wrong
+403 | Forbidden -- You don't have permission for this request
+409 | Conflict
+
+## Create a mail Action
+
+```php
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "https://api-cm.np6.com/actions",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => {
+   "type":"mailCampaign",
+   "name":"Action Mail v4",
+   "content":{
+      "headers":{
+         "from":{
+            "prefix":"Test",
+            "domain":"defaultdomain",
+            "label":"TEST"
+         },
+         "reply":"test@testreply.fr"
+      },
+      "subject":"Sujet de la campagne",
+      "html":"<html>Bonjour ceci est le html de test</html>",
+      "text":"Ceci est la version texte"
+   },
+   "settings":{
+      "templating":{
+         "version":4.1
+      }
+   },
+   "informations":{
+      "category": XXX // Category ID, if not precised the default value will be used
+   },
+   "scheduler":{
+      "type":"scheduled",
+      "startDate":"2017-10-20T14:14:00Z",
+      "segments":{
+         "selected":[
+             XXXX // segment ID
+         ],
+         "excluded":[
+
+         ]
+      },
+      "speed":0
+   }
+},
+
+  CURLOPT_HTTPHEADER => array(
+    "Content-Type: application/json",
+    "X-KEY: YOUR XKEY"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+```
+
+```java
+
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("text/plain");
+RequestBody body = RequestBody.create(mediaType, {
+	"type": "mailCampaign",
+	"name": "Action Mail v4",
+	"content": {
+		"headers": {
+			"from": {
+					"prefix": "Test",
+					"domain": "defaultdomain",
+					"label": "TEST"
+			},
+			"reply": "test@testreply.fr"
+		},
+		"subject": "Sujet de la campagne",
+		"html" : "<html>Bonjour ceci est le contenu html de test</html>",
+		"text" : "Ceci est la version texte"
+	},
+	"settings" : {
+		"templating" : {
+			"version": 4.1
+		}	
+	},
+	"informations" : {
+		"category" : XXX // Category ID, if not precised the default value will be used
+	},
+	"scheduler": {
+		"type": "scheduled",
+		"startDate" : "2017-10-20T14:14:00Z",
+		"segments": {
+				"selected": [XXXX], // Segment ID
+				"excluded": []
+		},
+		"speed": 0
+	}
+});
+Request request = new Request.Builder()
+  .url("https://api-cm.np6.com/actions")
+  .post(body)
+  .addHeader("X-KEY", "YOUR XKEY")
+  .addHeader("Content-Type", "application/json")
+  .build();
+
+Response response = client.newCall(request).execute();
+
+```
+
+```csharp
+
+var client = new RestClient("https://api-cm.np6.com/actions");
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "application/json");
+request.AddHeader("X-KEY", "YOUR XKEY");
+request.AddParameter({
+	"type": "mailCampaign",
+	"name": "Action Mail v4",
+	"content": {
+		"headers": {
+			"from": {
+					"prefix": "Test",
+					"domain": "defaultdomain",
+					"label": "TEST"
+			},
+			"reply": "test@testreply.fr"
+		},
+		"subject": "Sujet de la campagne",
+		"html" : "<html>Bonjour ceci est le contenu html de test</html>",
+		"text" : "Ceci est la version texte"
+	},
+	"settings" : {
+		"templating" : {
+			"version": 4.1
+		}	
+	},
+	"informations" : {
+		"category" : XXX
+	},
+	"scheduler": {
+		"type": "scheduled",
+		"startDate" : "2017-10-20T14:14:00Z",
+		"segments": {
+				"selected": [XXXX],
+				"excluded": []
+		},
+		"speed": 0
+	}
+}", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+
+```
+
+```shell
+
+curl -X POST \
+  https://api-cm.np6.com/actions \
+  -H 'Content-Type: application/json' \
+  -H 'X-KEY: YOUR XKEY' \
+  -d '{
+	"type": "mailCampaign",
+	"name": "Action Mail v4",
+	"content": {
+		"headers": {
+			"from": {
+					"prefix": "Test",
+					"domain": "defaultdomain",
+					"label": "TEST"
+			},
+			"reply": "test@testreply.fr"
+		},
+		"subject": "Sujet de la campagne",
+		"html" : "<html>Bonjour ceci est le contenu html de test</html>",
+		"text" : "Ceci est la version texte"
+	},
+	"settings" : {
+		"templating" : {
+			"version": 4.1
+		}	
+	},
+	"informations" : {
+		"category" : XXX
+	},
+	"scheduler": {
+		"type": "scheduled",
+		"startDate" : "2017-10-20T14:14:00Z",
+		"segments": {
+				"selected": [XXXX],
+				"excluded": []
+		},
+		"speed": 0
+	}
+}'
+
+```
+
+<blockquote class="lang-specific json">
+  <p>The request returns a JSON structured like this: </p>
+</blockquote>
+
+```json
+
+{
+    "type": "mailCampaign",
+    "id": "000ABC",
+    "name": "Action Mail v4",
+    "description": "This is a description",
+    "creationDate": "2016-06-08T11:21:00Z",
+    "informations": {
+        "folder": 1234,
+        "category": 1234,
+        "state": 20
+    },
+    "settings": {
+        "field": 1234,
+        "smsFormat": 3,
+        "smsType": 1
+    },
+    "content": {
+        "textContent": "This is a mail content"
+    },
+    "scheduler": {
+        "type": "asap",
+        "segments": {
+            "selected": [],
+            "excluded": []
+        },
+        "speed": 0
+    }
+}
+
+```
+
+This endpoint creates a mail action (Campaign or message).
+
+### HTTP Request
+
+`POST https://backoffice.mailperformance.com/actions/`
+
+### Query Parameters
+
+
 #### Mail Campaign
 
 Property | Type | Required | Description
 -------- | ---- | -------- | -----------
-type | string | true | Action's type ("mailCampaign" for a mail campaing)
+type | string | true | Action's type ("mailCampaign" for a mail campaign)
 name | string | true | Action's name
 description | string | true | Action's description
 informations | object | true | Object that contains multiple informations
@@ -493,21 +769,7 @@ content | object | true | Content of the mail
 ---- text | string | true | Content of the mail in plain text format
 ---- Encoding | string | true | Email content encoding
 
-#### SMS Message
-
-Property | Type | Required | Description
--------- | ---- | -------- | -----------
-type | string | true | Action's type ("smsMessage" for a sms message)
-name | string | true | Action's name
-description | string | true | Action's description
-informations | object | true | Object that contains multiple informations
----- folder | int | false | ID of the folder that will contain the sms campaign
----- category | int | false | ID of the category of the campaign
-content | object | true | Content of the sms
----- textContent | string | true | Content of the sms but in plain text fomat
-
 #### Mail Message
-
 Property | Type | Required | Description
 -------- | ---- | -------- | -----------
 type | string | true | Action's type ("mailMessage" for a mail message)
