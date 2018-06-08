@@ -707,31 +707,57 @@ curl -X POST \
 
 {
     "type": "mailCampaign",
-    "id": "000ABC",
+    "id": "000XXX",
     "name": "Action Mail v4",
-    "description": "This is a description",
-    "creationDate": "2016-06-08T11:21:00Z",
+    "description": null,
+    "creationDate": "2018-06-08T06:48:00Z",
     "informations": {
-        "folder": 1234,
-        "category": 1234,
+        "folder": 204,
+        "category": 355,
         "state": 20
     },
     "settings": {
-        "field": 1234,
-        "smsFormat": 3,
-        "smsType": 1
+        "templating": {
+            "version": 4.1
+        },
+        "contentFormat": 2,
+        "culture": "fr-FR",
+        "field": 3085,
+        "mp": {
+            "use": true,
+            "increment": true
+        },
+        "performance": {
+            "openingRate": 0,
+            "clickRate": 0,
+            "unsubscribeRate": 0
+        },
+        "useFormLinkSSL": false,
+        "webAnalyser": null
     },
     "content": {
-        "textContent": "This is a mail content"
+        "headers": {
+            "from": {
+                "prefix": "Test",
+                "domain": "defaultdomain",
+                "label": "TEST"
+            },
+            "reply": "test@testreply.fr"
+        },
+        "subject": "Sujet de la campagne",
+        "html": "<html>Bonjour ceci est le contenu html de test</html>",
+        "text": "Ceci est la version texte"
     },
     "scheduler": {
-        "type": "asap",
+        "type": "scheduled",
         "segments": {
-            "selected": [],
+            "selected": [
+                XXXX
+            ],
             "excluded": []
         },
-        "speed": 0
-    }
+        "speed": 0,
+        "startDate": "2017-10-20T14:14:00Z"
 }
 
 ```
