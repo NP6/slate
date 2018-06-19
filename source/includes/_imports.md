@@ -11,7 +11,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/imports/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/imports/12345",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -32,7 +32,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/imports/12345")
+  .url("https://api-cm.np6.com/imports/12345")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -41,7 +41,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/imports/12345");
+var client = new RestClient("https://api-cm.np6.com/imports/12345");
 
 var request = new RestRequest(Method.GET);
 
@@ -52,7 +52,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/imports/12345"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/imports/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -104,7 +104,7 @@ This endpoint retrieves a specific import.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/imports/<ID>`
+`GET https://api-cm.np6.com/imports/<ID>`
 
 ### URL Parameters
 
@@ -164,7 +164,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/imports/",
+    CURLOPT_URL             => "https://api-cm.np6.com/imports/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -230,7 +230,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, importBinding.toString());
 Request request = new Request.Builder()
-    .url("https://backoffice.mailperformance.com/imports/")
+    .url("https://api-cm.np6.com/imports/")
     .post(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -259,7 +259,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/imports");
+var client = new RestClient("https://api-cm.np6.com/imports");
 
 var request = new RestRequest(Method.POST);
 
@@ -321,7 +321,7 @@ IRestResponse response = client.Execute(request);
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
      -H "Accept: application/vnd.mperf.v8.import.v1+json"
-     -X POST "https://backoffice.mailperformance.com/imports" -d '
+     -X POST "https://api-cm.np6.com/imports" -d '
 {
     "name"                         : "Manual Import",
     "features"                     : [
@@ -404,7 +404,7 @@ It is imperative to add the Accept request-header field :
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/imports/`
+`POST https://api-cm.np6.com/imports/`
 
 ### Query Parameters
 
@@ -472,7 +472,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/importFormats/1234",
+    CURLOPT_URL             => "https://api-cm.np6.com/importFormats/1234",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -493,7 +493,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/importFormats/1234")
+  .url("https://api-cm.np6.com/importFormats/1234")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -502,7 +502,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/importFormats/1234");
+var client = new RestClient("https://api-cm.np6.com/importFormats/1234");
 
 var request = new RestRequest(Method.GET);
 
@@ -513,7 +513,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/importFormats/1234"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/importFormats/1234"
 ```
 
 <blockquote class="lang-specific json">
@@ -562,7 +562,7 @@ This endpoint retrieves a specific binding.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/importFormats/<ID>`
+`GET https://api-cm.np6.com/importFormats/<ID>`
 
 ### URL Parameters
 
@@ -615,7 +615,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/importFormats/",
+    CURLOPT_URL             => "https://api-cm.np6.com/importFormats/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -664,7 +664,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, mailMessage.toString());
 Request request = new Request.Builder()
-    .url("https://backoffice.mailperformance.com/importFormats/")
+    .url("https://api-cm.np6.com/importFormats/")
     .post(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -675,7 +675,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/importFormats");
+var client = new RestClient("https://api-cm.np6.com/importFormats");
 
 var request = new RestRequest(Method.POST);
 
@@ -707,7 +707,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
-     -X POST "https://backoffice.mailperformance.com/importFormats" -d '
+     -X POST "https://api-cm.np6.com/importFormats" -d '
 {
     "name"                  : "Binding file mail contact",
     "separator"             : 59,
@@ -764,7 +764,7 @@ This endpoint create a new Binding.
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/importFormats`
+`POST https://api-cm.np6.com/importFormats`
 
 ### Query Parameters
 
@@ -803,7 +803,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/imports/12345/source",
+    CURLOPT_URL             => "https://api-cm.np6.com/imports/12345/source",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -831,7 +831,7 @@ MediaType mediaType = MediaType.parse("application/octet-stream");
 RequestBody body = RequestBody.create(mediaType, fileContent);
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/imports/12345/source")
+  .url("https://api-cm.np6.com/imports/12345/source")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-disposition", "form-data; filename=filename.csv")
@@ -845,7 +845,7 @@ Response response = client.newCall(request).execute();
 ```csharp
 var fileContent = "nom;prenom;email;\nDupont;Jean;JD@test.com";
 
-var client = new RestClient("https://backoffice.mailperformance.com/imports/12345/source");
+var client = new RestClient("https://api-cm.np6.com/imports/12345/source");
 
 var request = new RestRequest(Method.PUT);
 
@@ -863,7 +863,7 @@ IRestResponse response = client.Execute(request);
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/octet-stream"
      -H "Content-disposition: form-data; filename=filename.csv"
      -H "Accept: application/vnd.mperf.v8.import.v1+json"
-     -X PUT "https://backoffice.mailperformance.com/imports/12345/source"
+     -X PUT "https://api-cm.np6.com/imports/12345/source"
      -d 'nom;prenom;email;\nDupont;Jean;JD@test.com'
 ```
 
@@ -888,7 +888,7 @@ It is imperative to add the Accept request-header field :
 
 ### HTTP Request
 
-`PUT https://backoffice.mailperformance.com/imports/<ID>/source`
+`PUT https://api-cm.np6.com/imports/<ID>/source`
 
 ### URL Parameters
 
@@ -929,7 +929,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/imports/12345/executions",
+    CURLOPT_URL             => "https://api-cm.np6.com/imports/12345/executions",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -958,7 +958,7 @@ MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, imports.toString());
 
 Request request = new Request.Builder()
-    .url("https://backoffice.mailperformance.com/imports/12345/executions")
+    .url("https://api-cm.np6.com/imports/12345/executions")
     .post(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -970,7 +970,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/imports/12345/executions");
+var client = new RestClient("https://api-cm.np6.com/imports/12345/executions");
 
 var request = new RestRequest(Method.POST);
 
@@ -987,7 +987,7 @@ IRestResponse response = client.Execute(request);
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
      -H "Accept: application/vnd.mperf.v8.import.v1+json"
-     -X POST "https://backoffice.mailperformance.com/imports/12345/executions"
+     -X POST "https://api-cm.np6.com/imports/12345/executions"
      -d '{ "binding": 1234 }'
 ```
 
@@ -1049,7 +1049,7 @@ It is imperative to add the Accept request-header field :
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/imports/<ID>/executions`
+`POST https://api-cm.np6.com/imports/<ID>/executions`
 
 ### URL Parameters
 

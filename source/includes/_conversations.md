@@ -11,7 +11,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/messages/<CONVERSATION_ID>",
+    CURLOPT_URL             => "https://api-cm.np6.com/messages/<CONVERSATION_ID>",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -32,7 +32,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/messages/<CONVERSATION_ID>")
+  .url("https://api-cm.np6.com/messages/<CONVERSATION_ID>")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -41,7 +41,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/messages/<CONVERSATION_ID>");
+var client = new RestClient("https://api-cm.np6.com/messages/<CONVERSATION_ID>");
 
 var request = new RestRequest(Method.GET);
 
@@ -51,7 +51,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/messages/<CONVERSATION_ID>"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/messages/<CONVERSATION_ID>"
 ```
 
 <blockquote class="lang-specific json">
@@ -78,7 +78,7 @@ This endpoint retrieves all the conversation events for a specific conversation.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/messages/<ID>`
+`GET https://api-cm.np6.com/messages/<ID>`
 
 ### URL Parameters
 

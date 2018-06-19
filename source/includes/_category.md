@@ -11,7 +11,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/categories",
+    CURLOPT_URL             => "https://api-cm.np6.com/categories",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -32,7 +32,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/categories")
+  .url("https://api-cm.np6.com/categories")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -41,7 +41,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/categories");
+var client = new RestClient("https://api-cm.np6.com/categories");
 
 var request = new RestRequest(Method.GET);
 
@@ -52,7 +52,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/categories/"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/categories/"
 ```
 
 <blockquote class="lang-specific json">
@@ -80,7 +80,7 @@ This endpoint retrieves all categories.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/categories`
+`GET https://api-cm.np6.com/categories`
 
 ### Return Codes
 
@@ -101,7 +101,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/categories/1234",
+    CURLOPT_URL             => "https://api-cm.np6.com/categories/1234",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -122,7 +122,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/categories/1234")
+  .url("https://api-cm.np6.com/categories/1234")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -131,7 +131,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/categories/1234");
+var client = new RestClient("https://api-cm.np6.com/categories/1234");
 
 var request = new RestRequest(Method.GET);
 
@@ -142,7 +142,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/categories/1234"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/categories/1234"
 ```
 
 <blockquote class="lang-specific json">
@@ -162,7 +162,7 @@ This endpoint retrieves a specific category.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/categories/<ID>`
+`GET https://api-cm.np6.com/categories/<ID>`
 
 ### URL Parameters
 
@@ -199,7 +199,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/categories/",
+    CURLOPT_URL             => "https://api-cm.np6.com/categories/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -238,7 +238,7 @@ MediaType mediaType = MediaType.parse("application/json");
 
 RequestBody body = RequestBody.create(mediaType, category.toString());
 Request request = new Request.Builder()
-    .url("https://backoffice.mailperformance.com/categories/")
+    .url("https://api-cm.np6.com/categories/")
     .post(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -258,7 +258,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/categories/");
+var client = new RestClient("https://api-cm.np6.com/categories/");
 
 var request = new RestRequest(Method.POST);
 
@@ -285,7 +285,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"        \
-     -X POST "https://backoffice.mailperformance.com/categories/" -d  \
+     -X POST "https://api-cm.np6.com/categories/" -d  \
 '{                                                                    \
    name: "New",                                                       \
    description: "Category for new campaign"                           \
@@ -310,7 +310,7 @@ This endpoint creates a category.
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/categories/`
+`POST https://api-cm.np6.com/categories/`
 
 ### Query Parameters
 
@@ -348,7 +348,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/categories/1234",
+    CURLOPT_URL             => "https://api-cm.np6.com/categories/1234",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -378,7 +378,7 @@ MediaType mediaType = MediaType.parse("application/json");
 
 RequestBody body = RequestBody.create(mediaType, category.toString());
 Request request = new Request.Builder()
-    .url("https://backoffice.mailperformance.com/categories/1234")
+    .url("https://api-cm.np6.com/categories/1234")
     .put(body)
     .addHeader("x-key", "YOUR XKEY")
     .addHeader("content-type", "application/json")
@@ -389,7 +389,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/categories/1234");
+var client = new RestClient("https://api-cm.np6.com/categories/1234");
 
 var request = new RestRequest(Method.PUT);
 
@@ -407,7 +407,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"          \
-     -X PUT "https://backoffice.mailperformance.com/categories/1234" -d \
+     -X PUT "https://api-cm.np6.com/categories/1234" -d \
 '{                                                                      \
    name: "Updated",                                                     \
    description: "Category for new campaign"                             \
@@ -432,7 +432,7 @@ This endpoint updates a category.
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/categories/<ID>`
+`POST https://api-cm.np6.com/categories/<ID>`
 
 ### URL Parameters
 
@@ -468,7 +468,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/categories/1234",
+    CURLOPT_URL             => "https://api-cm.np6.com/categories/1234",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -498,7 +498,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/categories/1234");
+var client = new RestClient("https://api-cm.np6.com/categories/1234");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -508,14 +508,14 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" -X DELETE "https://backoffice.mailperformance.com/categories/1234"
+curl -H "X-Key: YOUR XKEY" -X DELETE "https://api-cm.np6.com/categories/1234"
 ```
 
 This endpoint delete a specific category.
 
 ### HTTP Request
 
-`DELETE https://backoffice.mailperformance.com/categories/<ID>`
+`DELETE https://api-cm.np6.com/categories/<ID>`
 
 ### URL Parameters
 

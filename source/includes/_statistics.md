@@ -38,7 +38,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/actions/000ABC/statistics")
+  .url("https://api-cm.np6.com/actions/000ABC/statistics")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -47,7 +47,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/statistics");
+var client = new RestClient("https://api-cm.np6.com/actions/000ABC/statistics");
 
 var request = new RestRequest(Method.GET);
 
@@ -58,7 +58,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/actions/000ABC/statistics"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/actions/000ABC/statistics"
 ```
 
 <blockquote class="lang-specific json">
@@ -137,7 +137,7 @@ This endpoint retrieves statistics of an action.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/actions/<ID>/statistics`
+`GET https://api-cm.np6.com/actions/<ID>/statistics`
 
 ### URL Parameters
 
@@ -165,7 +165,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/bounces",
+    CURLOPT_URL             => "https://api-cm.np6.com/targets/bounces",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -186,7 +186,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/targets/bounces")
+  .url("https://api-cm.np6.com/targets/bounces")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -195,7 +195,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/targets/bounces");
+var client = new RestClient("https://api-cm.np6.com/targets/bounces");
 
 var request = new RestRequest(Method.GET);
 
@@ -206,7 +206,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/bounces"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/targets/bounces"
 ```
 
 <blockquote class="lang-specific json">
@@ -300,7 +300,7 @@ This endpoint retrieves all NPAI targets.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/targets/bounces`
+`GET https://api-cm.np6.com/targets/bounces`
 
 ### Return Codes
 
@@ -321,7 +321,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/actions/000ABC/feedbacks/bounces",
+    CURLOPT_URL             => "https://api-cm.np6.com/actions/000ABC/feedbacks/bounces",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -342,7 +342,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/actions/000ABC/feedbacks/bounces")
+  .url("https://api-cm.np6.com/actions/000ABC/feedbacks/bounces")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -351,7 +351,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/actions/000ABC/feedbacks/bounces");
+var client = new RestClient("https://api-cm.np6.com/actions/000ABC/feedbacks/bounces");
 
 var request = new RestRequest(Method.GET);
 
@@ -362,7 +362,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/actions/000ABC/feedbacks/bounces"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/actions/000ABC/feedbacks/bounces"
 ```
 
 <blockquote class="lang-specific json">
@@ -388,7 +388,7 @@ This endpoint retrieves all specific NPAI Targets of an action.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/actions/<ID>/feedbacks/bounces`
+`GET https://api-cm.np6.com/actions/<ID>/feedbacks/bounces`
 
 ### URL Parameters
 
@@ -428,7 +428,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/redlist/mail",
+    CURLOPT_URL             => "https://api-cm.np6.com/targets/redlist/mail",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -449,7 +449,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/targets/redlist/mail")
+  .url("https://api-cm.np6.com/targets/redlist/mail")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -458,7 +458,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/targets/redlist/mail");
+var client = new RestClient("https://api-cm.np6.com/targets/redlist/mail");
 
 var request = new RestRequest(Method.GET);
 
@@ -469,7 +469,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/redlist/mail"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/targets/redlist/mail"
 ```
 
 <blockquote class="lang-specific json">
@@ -499,7 +499,7 @@ This endpoint retrieves all mail redlist targets.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/targets/redlist/mail`
+`GET https://api-cm.np6.com/targets/redlist/mail`
 
 ### Return Codes
 
@@ -537,7 +537,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/targets/redlist/sms",
+    CURLOPT_URL             => "https://api-cm.np6.com/targets/redlist/sms",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -558,7 +558,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/targets/redlist/sms")
+  .url("https://api-cm.np6.com/targets/redlist/sms")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -567,7 +567,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/targets/redlist/sms");
+var client = new RestClient("https://api-cm.np6.com/targets/redlist/sms");
 
 var request = new RestRequest(Method.GET);
 
@@ -578,7 +578,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/targets/redlist/sms"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/targets/redlist/sms"
 ```
 
 <blockquote class="lang-specific json">
@@ -600,7 +600,7 @@ This endpoint retrieves all sms redlist targets.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/targets/redlist/sms`
+`GET https://api-cm.np6.com/targets/redlist/sms`
 
 ### Return Codes
 

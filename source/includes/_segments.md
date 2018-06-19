@@ -12,7 +12,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -33,7 +33,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/")
+  .url("https://api-cm.np6.com/segments/")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -42,7 +42,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/");
+var client = new RestClient("https://api-cm.np6.com/segments/");
 
 var request = new RestRequest(Method.GET);
 
@@ -53,7 +53,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/segments/"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/segments/"
 ```
 
 <blockquote class="lang-specific json">
@@ -90,7 +90,7 @@ This endpoint retrieves all segments.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/segments`
+`GET https://api-cm.np6.com/segments`
 
 ### Query Parameters
 
@@ -116,7 +116,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -137,7 +137,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/12345")
+  .url("https://api-cm.np6.com/segments/12345")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -146,7 +146,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/12345");
+var client = new RestClient("https://api-cm.np6.com/segments/12345");
 
 var request = new RestRequest(Method.GET);
 
@@ -157,7 +157,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/segments/12345"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/segments/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -200,7 +200,7 @@ This endpoint retrieves a specific segment.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/segments/<ID>`
+`GET https://api-cm.np6.com/segments/<ID>`
 
 ### URL Parameters
 
@@ -240,7 +240,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -285,7 +285,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/")
+  .url("https://api-cm.np6.com/segments/")
   .post(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -309,7 +309,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/");
+var client = new RestClient("https://api-cm.np6.com/segments/");
 
 var request = new RestRequest(Method.POST);
 
@@ -342,7 +342,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json" \
-     -X POST "https://backoffice.mailperformance.com/segments/" -d '
+     -X POST "https://api-cm.np6.com/segments/" -d '
 {
   "name"        : "Test segment",
   "description" : "Segment description",
@@ -393,7 +393,7 @@ This endpoint creates a segment.
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/segments/`
+`POST https://api-cm.np6.com/segments/`
 
 ### Query Parameters
 
@@ -437,7 +437,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -469,7 +469,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/12345")
+  .url("https://api-cm.np6.com/segments/12345")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -480,7 +480,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/12345");
+var client = new RestClient("https://api-cm.np6.com/segments/12345");
 
 var request = new RestRequest(Method.PUT);
 
@@ -500,7 +500,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
-     -X PUT "https://backoffice.mailperformance.com/segments/12345" -d '
+     -X PUT "https://api-cm.np6.com/segments/12345" -d '
 {
   "name"        : "Test segment",
   "description" : "Segment description",
@@ -550,7 +550,7 @@ This endpoint updates a specific segment.
 
 ### HTTP Request
 
-`PUT https://backoffice.mailperformance.com/segments/<ID>`
+`PUT https://api-cm.np6.com/segments/<ID>`
 
 ### URL Parameters
 
@@ -590,7 +590,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345/targets",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/12345/targets",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -611,7 +611,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/12345/targets")
+  .url("https://api-cm.np6.com/segments/12345/targets")
   .delete()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -620,7 +620,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/12345/targets");
+var client = new RestClient("https://api-cm.np6.com/segments/12345/targets");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -632,7 +632,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY"
-     -X DELETE "https://backoffice.mailperformance.com/segments/12345/targets"
+     -X DELETE "https://api-cm.np6.com/segments/12345/targets"
 ```
 
 <blockquote class="lang-specific json">
@@ -646,7 +646,7 @@ This endpoint empty a specific segment.
 
 ### HTTP Request
 
-`DELETE https://backoffice.mailperformance.com/segments/<ID>/targets`
+`DELETE https://api-cm.np6.com/segments/<ID>/targets`
 
 ### URL Parameters
 
@@ -675,7 +675,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/12345",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -696,7 +696,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/12345")
+  .url("https://api-cm.np6.com/segments/12345")
   .delete()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -705,7 +705,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/12345");
+var client = new RestClient("https://api-cm.np6.com/segments/12345");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -717,7 +717,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY"
-     -X DELETE "https://backoffice.mailperformance.com/segments/12345"
+     -X DELETE "https://api-cm.np6.com/segments/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -731,7 +731,7 @@ This endpoint deletes a specific segment.
 
 ### HTTP Request
 
-`DELETE https://backoffice.mailperformance.com/segments/<ID>`
+`DELETE https://api-cm.np6.com/segments/<ID>`
 
 ### URL Parameters
 
@@ -768,7 +768,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/segments/12345/targets",
+    CURLOPT_URL             => "https://api-cm.np6.com/segments/12345/targets",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -797,7 +797,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, Arrays.toString(stringArray));
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/segments/:idSegment/targets")
+  .url("https://api-cm.np6.com/segments/:idSegment/targets")
   .put(body)
   .addHeader("X-Key", "YOUR XKEY")
   .addHeader("Accept", "application/vnd.mperf.v8.unicity")
@@ -808,7 +808,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/segments/:idSegment/targets");
+var client = new RestClient("https://api-cm.np6.com/segments/:idSegment/targets");
 
 var request = new RestRequest(Method.PUT);
 
@@ -829,7 +829,7 @@ curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json" \
      -H "Accept: application/vnd.mperf.v8.unicity" \
      -X PUT \
      -d '["unicity1","unicity2","unicity3"]' \
-     "https://backoffice.mailperformance.com/segments/:idSegment/targets"
+     "https://api-cm.np6.com/segments/:idSegment/targets"
 ```
 
 
@@ -855,7 +855,7 @@ This endpoint update a specific segment with targets defined by their unicities.
 
 ### HTTP Request
 
-`PUT https://backoffice.mailperformance.com/segments/{id}/targets<ID>`
+`PUT https://api-cm.np6.com/segments/{id}/targets<ID>`
 
 ### URL Parameters
 

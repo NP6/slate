@@ -12,7 +12,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/fields/",
+    CURLOPT_URL             => "https://api-cm.np6.com/fields/",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -33,7 +33,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/fields/")
+  .url("https://api-cm.np6.com/fields/")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -42,7 +42,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/fields/");
+var client = new RestClient("https://api-cm.np6.com/fields/");
 
 var request = new RestRequest(Method.GET);
 
@@ -53,7 +53,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/fields/"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/fields/"
 ```
 
 <blockquote class="lang-specific json">
@@ -83,7 +83,7 @@ This endpoint retrieves all fields.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/fields`
+`GET https://api-cm.np6.com/fields`
 
 ### Query Parameters
 
@@ -109,7 +109,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/fields/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/fields/12345",
     CURLOPT_CUSTOMREQUEST   => "GET",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -130,7 +130,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/fields/12345")
+  .url("https://api-cm.np6.com/fields/12345")
   .get()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -139,7 +139,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/fields/12345");
+var client = new RestClient("https://api-cm.np6.com/fields/12345");
 
 var request = new RestRequest(Method.GET);
 
@@ -150,7 +150,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" "https://backoffice.mailperformance.com/fields/12345"
+curl -H "X-Key: YOUR XKEY" "https://api-cm.np6.com/fields/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -171,7 +171,7 @@ This endpoint retrieves a specific field.
 
 ### HTTP Request
 
-`GET https://backoffice.mailperformance.com/fields/<ID>`
+`GET https://api-cm.np6.com/fields/<ID>`
 
 ### URL Parameters
 
@@ -214,7 +214,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/fields/",
+    CURLOPT_URL             => "https://api-cm.np6.com/fields/",
     CURLOPT_CUSTOMREQUEST   => "POST",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -259,7 +259,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/fields/")
+  .url("https://api-cm.np6.com/fields/")
   .post(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -279,7 +279,7 @@ Response response = client.newCall(request).execute();
 </blockquote>
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/fields/");
+var client = new RestClient("https://api-cm.np6.com/fields/");
 
 var request = new RestRequest(Method.POST);
 
@@ -307,7 +307,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
-     -X POST "https://backoffice.mailperformance.com/fields/" -d '
+     -X POST "https://api-cm.np6.com/fields/" -d '
 {    
     "type"        : "textField",
     "name"        : "Firstname",
@@ -343,7 +343,7 @@ This endpoint creates a field.
 
 ### HTTP Request
 
-`POST https://backoffice.mailperformance.com/fields`
+`POST https://api-cm.np6.com/fields`
 
 ### Query Parameters
 
@@ -404,7 +404,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/fields/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/fields/12345",
     CURLOPT_CUSTOMREQUEST   => "PUT",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -440,7 +440,7 @@ OkHttpClient client = new OkHttpClient();
 MediaType mediaType = MediaType.parse("application/json");
 RequestBody body = RequestBody.create(mediaType, json.toString());
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/fields/12345")
+  .url("https://api-cm.np6.com/fields/12345")
   .put(body)
   .addHeader("x-key", "YOUR XKEY")
   .addHeader("content-type", "application/json")
@@ -451,7 +451,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/fields/12345");
+var client = new RestClient("https://api-cm.np6.com/fields/12345");
 
 var request = new RestRequest(Method.PUT);
 
@@ -470,7 +470,7 @@ IRestResponse response = client.Execute(request);
 
 ```shell
 curl -H "X-Key: YOUR XKEY" -H "Content-Type: application/json"
-     -X PUT "https://backoffice.mailperformance.com/fields/12345" -d '
+     -X PUT "https://api-cm.np6.com/fields/12345" -d '
 {    
     "type"        : "textField",
     "name"        : "Firstname",
@@ -506,7 +506,7 @@ This endpoint updates a specific field.
 
 ### HTTP Request
 
-`PUT https://backoffice.mailperformance.com/fields/<ID>`
+`PUT https://api-cm.np6.com/fields/<ID>`
 
 ### URL Parameters
 
@@ -560,7 +560,7 @@ $httpHeader = [
 ];
 
 $opts = [
-    CURLOPT_URL             => "https://backoffice.mailperformance.com/fields/12345",
+    CURLOPT_URL             => "https://api-cm.np6.com/fields/12345",
     CURLOPT_CUSTOMREQUEST   => "DELETE",
     CURLOPT_HTTP_VERSION    => CURL_HTTP_VERSION_1_1,
     CURLOPT_RETURNTRANSFER  => true,
@@ -580,7 +580,7 @@ curl_close($curl);
 OkHttpClient client = new OkHttpClient();
 
 Request request = new Request.Builder()
-  .url("https://backoffice.mailperformance.com/fields/12345")
+  .url("https://api-cm.np6.com/fields/12345")
   .delete()
   .addHeader("x-key", "YOUR XKEY")
   .build();
@@ -589,7 +589,7 @@ Response response = client.newCall(request).execute();
 ```
 
 ```csharp
-var client = new RestClient("https://backoffice.mailperformance.com/fields/12345");
+var client = new RestClient("https://api-cm.np6.com/fields/12345");
 
 var request = new RestRequest(Method.DELETE);
 
@@ -600,7 +600,7 @@ IRestResponse response = client.Execute(request);
 ```
 
 ```shell
-curl -H "X-Key: YOUR XKEY" -X DELETE "https://backoffice.mailperformance.com/fields/12345"
+curl -H "X-Key: YOUR XKEY" -X DELETE "https://api-cm.np6.com/fields/12345"
 ```
 
 <blockquote class="lang-specific json">
@@ -614,7 +614,7 @@ This endpoint deletes a specific field.
 
 ### HTTP Request
 
-`DELETE https://backoffice.mailperformance.com/fields/<ID>`
+`DELETE https://api-cm.np6.com/fields/<ID>`
 
 ### URL Parameters
 
