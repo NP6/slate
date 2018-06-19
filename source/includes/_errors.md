@@ -1,6 +1,6 @@
 # Errors
 
-The MailPerformance API uses the following error codes:
+The NP6 API uses the following error codes:
 
 Error Code | Meaning
 ---------- | -------

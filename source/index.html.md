@@ -1,5 +1,5 @@
 ---
-title: MailPerformance API Reference
+title: NP6 API Reference
 
 language_tabs:
   - php: PHP
