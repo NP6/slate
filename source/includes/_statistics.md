@@ -394,7 +394,7 @@ This endpoint retrieves all specific NPAI Targets of an action.
 
 Parameter | Description
 --------- | -----------
-ID | The ID of the kitten to retrieve
+ID | The ID of the action to retrieve
 
 ### Cible state
 
