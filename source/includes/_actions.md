@@ -775,7 +775,7 @@ This endpoint creates a mail action (Campaign or message).
 
 Property | Type | Required | Description
 -------- | ---- | -------- | -----------
-type | string | true | Action's type ("mailCampaign" for a mail campaign)
+type | string | true | Action's type ("mailCampaign" or "mailMessage")
 name | string | true | Action's name
 description | string | true | Action's description
 informations | object | true | Object that contains multiple informations
