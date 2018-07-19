@@ -1200,6 +1200,132 @@ Code | Description
 409 | Conflict
 410 | Gone -- Action is no longer available
 
+## Send a bulked message
+
+```php
+
+<?php
+
+$curl = curl_init();
+
+curl_setopt_array($curl, array(
+  CURLOPT_URL => "http://api-cm.np6.com/actions/YOUR_ACTION_ID/targets",
+  CURLOPT_RETURNTRANSFER => true,
+  CURLOPT_ENCODING => "",
+  CURLOPT_MAXREDIRS => 10,
+  CURLOPT_TIMEOUT => 30,
+  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+  CURLOPT_CUSTOMREQUEST => "POST",
+  CURLOPT_POSTFIELDS => "[{'recipient' : {'type': 'id','value': '000ABCDE'}},
+		{'recipient' : {'type': 'id','value': '000FGHIJ'}}]",
+  CURLOPT_HTTPHEADER => array(
+    "Accept: application/json",
+    "Content-Type: application/vnd.np6.cm.email-v4",
+    "X-Key: YOUR XKEY"
+  ),
+));
+
+$response = curl_exec($curl);
+$err = curl_error($curl);
+
+curl_close($curl);
+
+if ($err) {
+  echo "cURL Error #:" . $err;
+} else {
+  echo $response;
+}
+
+```
+
+```java
+
+OkHttpClient client = new OkHttpClient();
+
+MediaType mediaType = MediaType.parse("application/vnd.np6.cm.email-v4");
+RequestBody body = RequestBody.create(mediaType, "[{'recipient' : {'type': 'id','value': '000ABCDE'}},{'recipient' : {'type': 'id','value': '000FGHIJ'}}]");
+Request request = new Request.Builder()
+  .url("http://api-cm.np6.com/actions/YOUR_ACTION_ID/targets")
+  .post(body)
+  .addHeader("X-Key", "YOUR XKEY")
+  .addHeader("Accept", "application/json")
+  .addHeader("Content-Type", "application/vnd.np6.cm.email-v4")
+  .build();
+
+Response response = client.newCall(request).execute();
+
+```
+
+```csharp
+
+var client = new RestClient("http://api-cm.np6.com/actions/YOUR_ACTION_ID/targets");
+var request = new RestRequest(Method.POST);
+request.AddHeader("Content-Type", "application/vnd.np6.cm.email-v4");
+request.AddHeader("Accept", "application/json");
+request.AddHeader("X-Key", "YOUR XKEY");
+request.AddParameter("undefined", "['recipient' : {'type': 'id','value': '000ABCDE'},{'recipient' : {'type': 'id','value': '000FGHIJ'}}]", ParameterType.RequestBody);
+IRestResponse response = client.Execute(request);
+
+```
+
+```shell
+
+curl -X POST \
+  http://api-cm.np6.com/actions/YOUR_ACTION_ID/targets \
+  -H 'Accept: application/json' \
+  -H 'Content-Type: application/vnd.np6.cm.email-v4' \
+  -H 'X-Key: YOUR XKEY' \
+  -d '[
+	{
+		"recipient" : {
+			"type": "id",
+			"value": "000ABCDE"
+		}
+	},
+	{
+		"recipient" : {
+			"type": "id",
+			"value": "000FGHIJ"
+		}
+	}
+]'
+
+```
+
+
+<blockquote class="lang-specific json">
+  <p>The request returns a JSON structured like this with a conversation ID for each target: </p>
+</blockquote>
+
+```json
+
+[
+    "CONVERSATION_ID",
+    "CONVERSATION_ID"
+]
+
+```
+
+This endpoint sends a specific message to a target.
+
+### HTTP Request
+
+`POST https://api-cm.np6.com/actions/<ID>/targets`
+
+### URL Parameters
+
+Parameter | Description
+--------- | -----------
+ID | The ID of the action to send
+
+
+### Request Headers
+Name | Value
+---- | -----
+X-Key | Your XKEY
+Content-Type | application/vnd.np6.cm.email-v4
+Accept | application/json
+
 ## Send a specific message Action
 
 ```php
@@ -1271,7 +1397,6 @@ This endpoint sends a specific message to a target.
 `POST https://api-cm.np6.com/actions/<ID>/targets/<TARGETID>`
 
 ### URL Parameters
-
 Parameter | Description
 --------- | -----------
 ID | The ID of the action to send
