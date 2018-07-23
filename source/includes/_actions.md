@@ -126,6 +126,7 @@ Code | Description
 CampaignWorkflowState           |
 --------------------------------|
 Creation = 10                   |
+Created = 20			|
 AskingValidation = 38		|
 WaitingValidation = 40		|
 Validated = 50	    		|
