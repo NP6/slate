@@ -1266,7 +1266,7 @@ var request = new RestRequest(Method.POST);
 request.AddHeader("Content-Type", "application/vnd.np6.cm.email-v4");
 request.AddHeader("Accept", "application/json");
 request.AddHeader("X-Key", "YOUR XKEY");
-request.AddParameter("undefined", "['recipient' : {'type': 'id','value': '000ABCDE'},{'recipient' : {'type': 'id','value': '000FGHIJ'}}]", ParameterType.RequestBody);
+request.AddParameter("['recipient' : {'type': 'id','value': '000ABCDE'},{'recipient' : {'type': 'id','value': '000FGHIJ'}}]", ParameterType.RequestBody);
 IRestResponse response = client.Execute(request);
 
 ```
